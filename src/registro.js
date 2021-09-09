@@ -1,4 +1,4 @@
-const registration = () => {
+export const registration = () => {
 
     const templateRegistro = `
       <div> 
