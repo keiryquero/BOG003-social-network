@@ -1,3 +1,4 @@
+
  export const registration = () => {
 
   const templateRegistro = `
@@ -35,3 +36,5 @@ for (const x of tags) {
 }
 
 html += `</ul>`;*/
+
+
