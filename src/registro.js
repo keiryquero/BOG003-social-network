@@ -1,23 +1,24 @@
- export const registration = () => {
+export const registration = () => {
 
   const templateRegistro = `
+  <section>
     <div> 
     <h1> REGISTRARSE:</h1>,
-    <img src="img/google.png" alt="">
-    <input type ="text" value ="">Registarte con Google</input>
-    <form action="../form-result.php" target="_blank">
-        <p>Ingresa tu nombre completo: <input type="text" name="nombrecompleto"></p>
-        <p>      
-        Deja un mensaje:<br>      
-        <textarea name="mensaje"></textarea>      
-        </p>      
-        <input type="submit" value="Enviar la información">      
-    </form>
+    <button id="registro-google" type="button">Registarse con Google</button>
+    <input type="text" class="form" id="nombres" value="" placeholder="Nombre">
+    <input type="email" class="form" id="email-registro" value="" placeholder="Email">
+    <input type= "password" class="form" id="password-one" value="" placeholder="Password">
+    <input type="password" class="form" id="password-one" value="" placeholder="Confirme password">
+    <p>Acepto terminos y condiciones</p>
+    <button id="btn-resgistrarse" type="button">Registrarse </button>
+    <p>¿Ya estas registrado?</p>
     </div>
+    </section>    
 `
 
   const divRegistro = document.createElement("div");
   divRegistro.innerHTML = templateRegistro;
+
   divRegistro.classList.add("divRegistro") /*Se asigna la clase a un div creado desde createElement*/
   console.log()
   return divRegistro

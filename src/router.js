@@ -1,10 +1,15 @@
 
-import {registration}from './lib/index.js' 
+import {registration}from './src/registro.js' 
+
+const name = new type(arguments);
 
 
 
 
-rutas = [
+
+console.log(registration)
+
+/*rutas = [
     { nombre: "Inicio", url: "#/inicio", plantilla: "inicio" },
     { nombre: "Registro", url: "#/registro", plantilla: "registro" },
     { nombre: "Muro", url: "#/muro", plantilla: "muro" },
@@ -36,5 +41,5 @@ rutas = [
     });
   }
   
-  renderizarPagina(window.location.hash);
+  renderizarPagina(window.location.hash);*/
   
