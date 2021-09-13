@@ -19,3 +19,4 @@ divContenedor.innerHTML = mostrarVista;
 console.log(divContenedor);
 //return divRegistro
   
+
