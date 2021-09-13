@@ -1,16 +1,42 @@
 
-import {registration}from './lib/index.js' 
+import { registration } from "./registro.js";
+import {post}from './post.js';
 
-
-
-
-rutas = [
-    { nombre: "Inicio", url: "#/inicio", plantilla: "inicio" },
-    { nombre: "Registro", url: "#/registro", plantilla: "registro" },
-    { nombre: "Muro", url: "#/muro", plantilla: "muro" },
-    { nombre: "Post", url: "#/post", plantilla: "post" },
+export function mostrarVista(hash){
+  const container = document.getElementById("contenedorRood");
+  console.log(hash);
+  const vistasMenu = [
+    { nombre: "Registro", url: "#/registro", template: "registration" },
+    { nombre: "post", url: "#/post", template: "post" },
   ];
+  const contenidoTemplate = "";
+  switch(hash){
+    case "#/inicio":
+      container.appendChild(registration());
+     break;
+      case "#/login":
+        container.innerHTML = "<h1>Login</h1><a href='#/inicio'> Inicio</a>"
+        break;
+        default:
+          container.innerHTML = "<h1>Registro</h1> <a href='#/inicio'> Inicio</a>"
+        break;
   
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*ejemplo 
   document.querySelectorAll(".menu-item").forEach((item) => {
     item.addEventListener("click", function (eveneto) {
       const ruta = eveneto.target.getAttribute("ruta");
@@ -36,5 +62,5 @@ rutas = [
     });
   }
   
-  renderizarPagina(window.location.hash);
+  renderizarPagina(window.location.hash);*/
   
