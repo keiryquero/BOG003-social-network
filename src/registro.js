@@ -23,7 +23,6 @@ export const registration = () => {
   `
   /*const divRegistro = document.createElement("div");
   divRegistro.innerHTML = templateRegistro;
-
   divRegistro.classList.add("divRegistro") /*Se asigna la clase a un div creado desde createElement*/
   //console.log()
   return templateRegistro
