@@ -1,5 +1,86 @@
 *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
+
+body{
+  display:flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content:space-between;
+}
+
+.menu-header{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;    
+  background-image: linear-gradient(to right, #e9912c 0%, #feed00de 100%);
+  width: 100%;
+  height: 180px;
+  border-radius: 5px;
+  box-shadow: 0 5px 5px rgba(120, 121, 122, 0.603);
+}
+
+.menu-header .menu-nav {
+   text-decoration: none;
+  list-style: none;
+}
+
+#contenedorRood{
+  background-color:white;
+  width: 100%;
+  height:70%
+  }
+
+  #contenedorRood h1{
+    text-align:center;
+    font-size: 36px;
+
+  }
+  #contenedorRood img{
+    width: 100%;
+    height:180px
+  }
+  #contenedorRood p{
+    text-align: center;
+    font-size: 24px;
+    color: rgb(27, 16, 2);
+
+  } 
+/* Div del templace de inicio y registro*/
+  .contenedor-central{
+    padding: 30px ;
+    background-color: blue;
+  }
+  /* Div del formulario de registro*/
+  .contenedor-form{ 
+
+    width: 400px;
+    background-color: chocolate;
+    padding: 30px;
+    text-align:center;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 30px;
+    border-radius: 5px;
+
+  }
+  /* Div del boton de registro*/
+  .contenedor-form .registro-google{
+       background-image: url(img/google.png);
+  }
+
+
+ footer{
+    background: #f1efef;
+    width: 100%;
+    height: 80px;
+}
+ footer p{
+  /*border-bottom: 3px solid #af20d3;*/
+  text-align:center;
+  font-size: 24px;
+  margin:20px 0 0 0 ;
+  color: #080808;
+ }

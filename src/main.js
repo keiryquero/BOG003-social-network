@@ -1,5 +1,3 @@
-// Este es el punto de entrada de tu aplicacion
-
 import { mostrarVista } from './router.js';
 //carga la pagina
 document.addEventListener("DOMContentLoaded",()=>{
@@ -13,6 +11,7 @@ window.addEventListener("hashchange",()=>{
     console.log(locationRood);
     mostrarVista(locationRood);
     });
+
 const divContenedor = document.createElement("div");
 divContenedor.innerHTML = mostrarVista;
 //divRegistro.classList.add("divRegistro") /*Se asigna la clase a un div creado desde createElement*/
