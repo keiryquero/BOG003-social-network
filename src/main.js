@@ -13,9 +13,9 @@ window.addEventListener("hashchange",()=>{
     console.log(locationRood);
     mostrarVista(locationRood);
     });
-const divContenedor = document.createElement("div");
+/*const divContenedor = document.createElement("div");
 divContenedor.innerHTML = mostrarVista;
 //divRegistro.classList.add("divRegistro") /*Se asigna la clase a un div creado desde createElement*/
-console.log(divContenedor);
+//console.log(divContenedor);
 //return divRegistro
   

@@ -1,5 +1,28 @@
 *{
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+   
+}
+body{
+    
+    background-color: cadetblue;
+    font-family: sans-serif;
+    color: black;
+  
+}
+.contenedor-main{
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    display: grid;
+    grid-area: 20px;
+}
+.menu-header{
+   background-color: aqua; 
+  
+  
+   
+}
+footer{
+    background-color: dimgrey;
 }

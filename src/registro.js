@@ -7,7 +7,7 @@ export const registration = () => {
       <img class="galeria"src="img/ejemplorestaurantes.jpg" alt="Imagen ejemplo restaurantes">
       <p class="texto">Únete a la comunidad de ALKEVE RESTAURANT SITE, la app para crear, compartir y conocer restaurantes en tu ciudad.</p>
       </div>  
-      <h1> REGISTRARSE:</h1>,
+      <h1> REGISTRARSE:</h1>
       <button id="registro-google" type="button">Registarse con Google</button>
       <input type="text" class="form" id="nombres" value="" placeholder="Nombre">
       <input type="email" class="form" id="email-registro" value="" placeholder="Email">

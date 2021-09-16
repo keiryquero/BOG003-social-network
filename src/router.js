@@ -6,20 +6,23 @@ import {post}from './post.js';
 export function mostrarVista(hash){
   const container = document.getElementById("contenedorRood");
   console.log(hash);
-  const vistasMenu = [
+  /*const vistasMenu = [
     { nombre: "Registro", url: "#/registro", template: "registration" },
     { nombre: "post", url: "#/post", template: "post" },
-  ];
-  const contenidoTemplate = "";
+  ];*/
+  //const contenidoTemplate = "";
   switch(hash){
     case "#/inicio":
-      container.appendChild(registration());
-     break;
-      case "#/login":
-        container.innerHTML = "<h1>Login</h1><a href='#/inicio'> Inicio</a>"
+      container.innerHTML = registration();
+    break;
+      case "#/post":        
+      container.innerHTML = post();
+        break;
+        case "#/login":        
+        container.innerHTML = login();
         break;
         default:
-          container.innerHTML = "<h1>Registro</h1> <a href='#/inicio'> Inicio</a>"
+          container.innerHTML = registration();
         break;
   
   }
