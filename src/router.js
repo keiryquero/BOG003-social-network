@@ -1,29 +1,45 @@
 
 import { registration } from "./registro.js";
-import {post}from './post.js';
-
+import {post} from './post.js';
+import { login } from "./login.js";
+import { muro } from "./muro.js";
 
 export function mostrarVista(hash){
   const container = document.getElementById("contenedorRood");
+  
   console.log(hash);
+
   /*const vistasMenu = [
+
     { nombre: "Registro", url: "#/registro", template: "registration" },
+    { nombre: "Login", url: "#/login", template: "login" },
     { nombre: "post", url: "#/post", template: "post" },
+
   ];*/
   //const contenidoTemplate = "";
+
   switch(hash){
     case "#/inicio":
       container.innerHTML = registration();
     break;
-      case "#/post":        
+
+    case "#/login":
+      container.innerHTML = login();
+      //container.appendChild(templateLogin());
+     // container.innerHTML = "<h1>Login</h1><a href='#/inicio'> Inicio</a>"
+    break;
+    case "#/post":
       container.innerHTML = post();
-        break;
-        case "#/login":        
-        container.innerHTML = login();
-        break;
-        default:
-          container.innerHTML = registration();
-        break;
+       // container.innerHTML = "<h1>Login</h1><a href='#/inicio'> Inicio</a>"
+    break;
+    case "#/muro":
+      container.innerHTML = muro();
+       // container.innerHTML = "<h1>Login</h1><a href='#/inicio'> Inicio</a>"
+    break;
+    default:
+      container.innerHTML =registration();
+    break;
+
   
   }
 }
