@@ -52,7 +52,7 @@ body{
 /* Div del templace de inicio y registro*/
   .contenedor-central{
     padding: 30px ;
-    background-color: blue;
+    background-color:bisque;
   }
   /* Div del formulario de registro*/
   .contenedor-form{ 
@@ -71,8 +71,6 @@ body{
   .contenedor-form .registro-google{
        background-image: url(img/google.png);
   }
-
-
  footer{
     background: #f1efef;
     width: 100%;

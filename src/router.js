@@ -7,18 +7,7 @@ import { muro } from "./muro.js";
 export function mostrarVista(hash){
   const container = document.getElementById("contenedorRood");
   
-  console.log(hash);
-
-  /*const vistasMenu = [
-
-    { nombre: "Registro", url: "#/registro", template: "registration" },
-    { nombre: "Login", url: "#/login", template: "login" },
-    { nombre: "post", url: "#/post", template: "post" },
-
-  ];*/
-  //const contenidoTemplate = "";
-
-  switch(hash){
+    switch(hash){
     case "#/inicio":
       container.innerHTML = registration();
     break;
