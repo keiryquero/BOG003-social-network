@@ -44,34 +44,47 @@ body{
   }
   #contenedorRood p{
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
     color: rgb(27, 16, 2);
 
   } 
-/* Div del templace de inicio y registro*/
+/* Div del template de inicio y registro*/
   .contenedor-central{
     padding: 30px ;
-    background-color: blue;
+    background-color: white;
   }
   /* Div del formulario de registro*/
   .contenedor-form{ 
-
     width: 400px;
-    background-color: chocolate;
+    background-color: rgb(252, 252, 252);
     padding: 30px;
     text-align:center;
     align-items: center;
     margin: auto;
     margin-bottom: 30px;
     border-radius: 5px;
+    box-shadow: 0 5px 5px rgba(120, 121, 122, 0.603);
+
+  }
+ 
+  .contenedor-form .form{
+    width: 300px;
+    background: rgb(252, 252, 252);
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border: 1px solid #d36a07dc;
 
   }
   /* Div del boton de registro*/
-  .contenedor-form .registro-google{
-       background-image: url(img/google.png);
+  .contenedor-form .registro-google { 
+      /*background-image: url(img/google.png);*/
+       width: 250px;
+       padding: 5px;
+       color: rgb(0, 0, 0);
+       font-size: 18px;       
   }
-
-
+ 
  footer{
     background: #f1efef;
     width: 100%;

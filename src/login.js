@@ -7,8 +7,7 @@ export const login = () => {
       <input type="email" class="form" id="email-registro" value="" placeholder="Email">
       <input type= "password" class="form" id="password-one" value="" placeholder="Password">
       <button id="btn-login" type="button">Logueate</button>
-      <p>¿NO estas registrado aun? <a href="#">ingresa aquí</a></p>
-      <button id="botonRetornoRegistro" type="button">Registrarse</button>
+      <p>¿NO estas registrado aun? <a href="#/inicio">ingresa aquí</a></p>
       </div>
   `
   /*const divRegistro = document.createElement("div");
