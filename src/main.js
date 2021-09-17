@@ -20,7 +20,7 @@ divContenedor.innerHTML = mostrarVista;
   
 
 /*Prueba de boton */
-const eventoFormReg = document.getElementById("nombres");
+const eventoFormReg = document.getElementById("nombres").value;
 
 eventoFormReg.addEventListener(`submit`, e =>{
     e.preventDefault();
