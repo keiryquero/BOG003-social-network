@@ -1,4 +1,5 @@
 *{
+
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -51,7 +52,7 @@ body{
 /* Div del templace de inicio y registro*/
   .contenedor-central{
     padding: 30px ;
-    background-color: blue;
+    background-color:bisque;
   }
   /* Div del formulario de registro*/
   .contenedor-form{ 
@@ -70,8 +71,6 @@ body{
   .contenedor-form .registro-google{
        background-image: url(img/google.png);
   }
-
-
  footer{
     background: #f1efef;
     width: 100%;
@@ -84,3 +83,4 @@ body{
   margin:20px 0 0 0 ;
   color: #080808;
  }
+
