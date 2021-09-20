@@ -1,6 +1,5 @@
-export const post= () => {
-
-    const templatePost = `
+export const post = () => {
+  const templatePost = `
     <div id = "tarjeta">
     <h2>Mi Restaurant</h2>
   </div>
@@ -10,8 +9,8 @@ export const post= () => {
     <p> Ubicacion:</p>
   </div>
   <div id = "botonlike"></div>
-  `
-    /*const divTarjeta = document.createElement("div");
+  `;
+  /*const divTarjeta = document.createElement("div");
     const name= document.createElement("h2");
     const divDescripcion = document.createElement("div");
     const costo = document.createElement("p");
@@ -27,7 +26,6 @@ export const post= () => {
    
     divTarjeta.innerHTML = templatePost;
     //divRegistro.classList.add("divRegistro") /*Se asigna la clase a un div creado desde createElement*/
-    //console.log()
-    return templatePost
-  
-  }
+  //console.log()
+  return templatePost;
+};
