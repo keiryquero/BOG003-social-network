@@ -1,12 +1,18 @@
 // aqui exportaras las funciones que necesites
 
-export const crearUsuario = (email,password,name) => {
+export const crearUsuario = (email, password, name) => {
   const name = "";
   const email = "test@gmail.com";
   const password = "123456";
 
   const auth = getAuth();
-      createUserWithEmailAndPassword(auth, nombres, email-registro, password-one)
+  
+  createUserWithEmailAndPassword(
+    auth,
+    nombres,
+    email - registro,
+    password - one
+  )
     .then((userCredential) => {
       // Signed in
 
@@ -18,6 +24,4 @@ export const crearUsuario = (email,password,name) => {
       const errorMessage = error.message;
       // ..
     });
-
-  
 };

@@ -1,5 +1,4 @@
 export const muro = () => {
-
   const templateMuro = `
   <section id="vista-muro">
    <div id="buttons">
@@ -8,8 +7,7 @@ export const muro = () => {
    </div>
    <div id="muro"></div>
   </section>
-` 
-  
-  return templateMuro
+`;
 
-}
+  return templateMuro;
+};
