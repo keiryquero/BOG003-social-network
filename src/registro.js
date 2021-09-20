@@ -12,7 +12,7 @@ export const registration = () => {
       <h1> REGISTRARSE:</h1><br>
       <button id="registro-google" class="registro-google" type="button">Registarse con Google</button><br><br>
       <p>Registrate con tu correo:</p><br>
-      <form id= "fomularioRegistro">
+      <form id= "formularioRegistro">
       <input type="text" class="form" id="nombres" value="" placeholder="Nombre"><br>
       <input type="email" class="form" id="email-registro" value="" placeholder="Email"><br>
       <input type= "password" class="form" id="password-one" value="" placeholder="Password"><br>

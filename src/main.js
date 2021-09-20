@@ -20,6 +20,18 @@ divContenedor.innerHTML = mostrarVista;
   
 
 /*Prueba de boton */
+
+const resgisterForm =document.querySelector("#formularioRegistro");
+const loginForm =document.querySelector("#login");
+
+
+resgisterForm.addEventListener("submit",btn-resgistrarse);
+loginForm.addEventListener("submit", btn-login);
+
+
+
+
+
 const eventoFormReg = document.getElementById("nombres").value;
 
 eventoFormReg.addEventListener(`submit`, e =>{
