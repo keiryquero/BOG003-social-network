@@ -10,6 +10,12 @@ export function mostrarVista(hash){
     switch(hash){
     case "#/inicio":
       container.innerHTML = registration();
+      const crearCuenta = document.getElementById("btn-resgistrarse").addEventListener("click",()=>{
+      const name = document.getElementById("nombres").value;
+      const email = document.getElementById("email-registro").value;
+      const password = document.getElementById("password-one").value;
+        console.log(name,email, password);
+      });
     break;
 
     case "#/login":
@@ -27,9 +33,12 @@ export function mostrarVista(hash){
     break;
     default:
       container.innerHTML =registration();
-    break;
+     
+      /*document.getElementById("btn-resgistrarse").addEventListener("click",()=>{
+        
+});*/
 
-  
+    break;
   }
 }
 

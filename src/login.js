@@ -11,7 +11,7 @@ export const login = () => {
   <form id="login">
     <input type="email" class="form" id="email-login" value="" placeholder="Email">
     <input type= "password" class="form" id="password-two" value="" placeholder="Password">
-    <button id="btn-login" type="button">Ingresar</button>
+    <button id="btn-login" type="submit">Ingresar</button>
     <p>¿NO estas registrado aun? <a href="#/inicio">ingresa aquí</a></p>
  </form>
 </div>

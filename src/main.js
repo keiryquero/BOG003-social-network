@@ -29,6 +29,7 @@
    
 
 import { mostrarVista } from "./router.js";
+
 //import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 //carga la pagina
 document.addEventListener("DOMContentLoaded", () => {
@@ -43,19 +44,21 @@ window.addEventListener("hashchange", () => {
   mostrarVista(locationRood);
 });
 
-//LLamada de formularios
+
+
+
+
+/*LLamada de formularios
 const registerform = document.querySelector("#formularioRegistro");
 const loginform = document.querySelector("#login");
 
 //Registrar evento sumbit a cada formulario
 registerform.addEventListener("submit", btn-resgistrarse);
 loginform.addEventListener ("submit", btn-login);
-
+//ayuda a enrutar los datos del formulario
 registerinicio((evento)=>{
   evento.preventDefault();
 });
-
-  btn-resgistrarse.preventDefault();
   const auth = getAuth();
   createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -68,32 +71,8 @@ registerinicio((evento)=>{
         const errorCode = error.code;
         const errorMessage = error.message;
         // ..
-      });
-  const name = formulario["nombres"].value;
-  const password = formulario["password-one"].value;
-  const email = formulario["email-registro"].value;
-  console.log(name, password, email);
-});
+      });*/
+  
 
 
-/*document.getElementById("btn-resgistrarse").addEventListener("click", () => {
-    
-    import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-    const email = "test@gmail.com";
-    const password = "123456";
 
-    const auth = getAuth();
-        createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-
-        const user = userCredential.user;
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
-      });
-
-})*/
