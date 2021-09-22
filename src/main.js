@@ -1,11 +1,11 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-analytics.js";
-import {
-    getAuth,
-    signInWithEmailAndPassword,
-    createUserWithEmailAndPassword,
-} from "https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js";
+//import {
+    //getAuth,
+    //signInWithEmailAndPassword,
+    //createUserWithEmailAndPassword,
+//} from "https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -39,34 +39,34 @@ window.addEventListener("hashchange", () => {
     mostrarVista(locationRood);
 });
 
+
 //intaciar los formularios de cada vista
 
-const registerform = document.querySelector("#formularioRegistro");
-console.log(registerform);
+// const registerform = document.querySelector("#formularioRegistro");
+// console.log(registerform);
 
 //const loginform = document.querySelector("#login");
 
 // Registrar evento submit en cada formulario
-registerform.addEventListener("submit", () => {
-    console.log("hola");
-    const email = document.querySelector("#email-registro").value;
-    const password = document.querySelector("#password-one").value;
-    firebase
-        .auth()
-        .createUserWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-            // Signed in
-            console.log(userCredential);
-            const user = userCredential.user;
-            // ...
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorMessage);
-            // ..
-        });
-});
+// registerform.addEventListener("submit", () => {
+//     console.log("hola");
+//     const email = document.querySelector("#email-registro").value;
+//     const password = document.querySelector("#password-one").value;
+//     firebase.auth()
+//         .createUserWithEmailAndPassword(email, password)
+//         .then((userCredential) => {
+//             // Signed in
+//             console.log(userCredential);
+//             const user = userCredential.user;
+//             // ...
+//         })
+//         .catch((error) => {
+//             const errorCode = error.code;
+//             const errorMessage = error.message;
+//             console.log(errorMessage);
+//             // ..
+//         });
+// });
 
 /*loginform.addEventListener("submit",btn-login );
 
