@@ -25,34 +25,3 @@ export const registration = () => {
   `;
     return templateRegistro;
 };
-
-//intaciar los formularios de cada vista
-
-const registerform = document.querySelector("#formularioRegistro");
-console.log(registerform);
-
-
-
-//const loginform = document.querySelector("#login");
-
-// Registrar evento submit en cada formulario
-registerform.addEventListener("submit", () => {
-    console.log("hola");
-    const email = document.querySelector("#email-registro").value;
-    const password = document.querySelector("#password-one").value;
-    firebase
-        .auth()
-        .createUserWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-            // Signed in
-            console.log(userCredential);
-            const user = userCredential.user;
-            // ...
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorMessage);
-            // ..
-        });
-});
