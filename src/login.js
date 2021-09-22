@@ -1,7 +1,9 @@
 import { inciarSesion } from "./auth/index.js";
 
 export const login = () => {
-    const templateLogin = `
+
+  const templateLogin = `
+
     <div> 
     <div> <img class="galeria"src="img/ejemplorestaurantes.jpg" alt="Imagen ejemplo restaurantes"><br><br>
   </div> 
@@ -34,4 +36,5 @@ export const login = () => {
     });
     // el retunr ya no devuelve el texto del template sino que devuelve un nodo de HTML
     return template.content;
+  
 };
