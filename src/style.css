@@ -36,6 +36,7 @@ body {
 #contenedorRood h1 {
   text-align: center;
   font-size: 36px;
+  align-items: center;
 }
 #contenedorRood img {
   width: 100%;
@@ -52,7 +53,7 @@ body {
   background-color: white;
 }
 /* Div del formulario de registro*/
-.contenedor-form {
+.contenedor-form, .form-login {
   width: 400px;
   background-color: rgb(252, 252, 252);
   padding: 30px;
@@ -72,6 +73,35 @@ body {
   margin-bottom: 15px;
   border: 1px solid #d36a07dc;
 }
+
+.form{ /*input del login*/
+  width: 300px;
+  background: rgb(252, 252, 252);
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  border: 1px solid  #d36a07dc;
+}
+#btn-login,#btn-resgistrarse{
+  border-radius: 10px;
+    width: 40%;
+    max-width: 350px;
+    height: 30px;
+    font-size: 16px;
+    margin-top: 10px;
+    color: black;
+    background-color: #E08A08;
+    text-align: center;
+    border: #e9912c;
+
+}
+
+.title-login h1{
+  align-items: center;
+  text-align: center;
+  font-size: 30px;
+}
+
 /* Div del boton de registro*/
 .contenedor-form .registro-google {
   /*background-image: url(img/google.png);*/
@@ -92,4 +122,99 @@ footer p {
   font-size: 24px;
   margin: 20px 0 0 0;
   color: #080808;
+}
+@media screen and (max-width:375px){
+
+  header{
+    width: 100% ;   
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }
+  .menu-header{
+    width: 100% ;   
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+    
+  }
+
+  #contenedorRoute {
+  width: 100% ;   
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }
+
+  .contenedor-central{
+    width: 100% ;
+  }
+  .contenedor-form{
+    width: 100% ;   
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  }
+  .form-login{
+    width: 100% ;   
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+footer{
+  width: 100% ;   
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+}
+
+@media screen and (max-width:600px){
+
+  header{
+    width: 100% ;   
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }
+
+  #contenedorRoute  {
+  width: 100% ;   
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }
+
+footer{
+  width: 100% ;   
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+}
+
+@media screen and (max-width:900px){
+
+  header{
+    width: 100% ;   
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }
+  #contenedorRoute  {
+  width: 100% ;   
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }
+
+footer{
+  width: 100% ;   
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 }

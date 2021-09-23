@@ -41,7 +41,7 @@ export const registration = () => {
                     placeholder="Password"
                 /><br />
                 <p>Acepto <a href="#">terminos y condiciones</a></p>
-                <button id="btn-resgistrarse" type="submit">Crear cuenta</button
+                <button id="btn-resgistrarse" type="submit">CREAR CUENTA</button
                 ><br />
                 <p>
                     ¿Ya estas registrado?
