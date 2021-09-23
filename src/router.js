@@ -1,60 +1,41 @@
-
 import { registration } from "./registro.js";
-import {post} from './post.js';
+import { post } from "./post.js";
 import { login } from "./login.js";
 import { muro } from "./muro.js";
 
-export function mostrarVista(hash){
-  const container = document.getElementById("contenedorRood");
-  
-    switch(hash){
-    case "#/inicio":
-      container.innerHTML = registration();
-      const crearCuenta = document.getElementById("btn-resgistrarse").addEventListener("click",()=>{
-      const name = document.getElementById("nombres").value;
-      const email = document.getElementById("email-registro").value;
-      const password = document.getElementById("password-one").value;
-        console.log(name,email, password);
-      });
-    break;
+export function mostrarVista(hash) {
+    const container = document.getElementById("contenedorRoute");
 
-    case "#/login":
-      container.innerHTML = login();
-      //container.appendChild(templateLogin());
-     // container.innerHTML = "<h1>Login</h1><a href='#/inicio'> Inicio</a>"
-    break;
-    case "#/post":
-      container.innerHTML = post();
-       // container.innerHTML = "<h1>Login</h1><a href='#/inicio'> Inicio</a>"
-    break;
-    case "#/muro":
-      container.innerHTML = muro();
-       // container.innerHTML = "<h1>Login</h1><a href='#/inicio'> Inicio</a>"
-    break;
-    default:
-      container.innerHTML =registration();
-     
-      /*document.getElementById("btn-resgistrarse").addEventListener("click",()=>{
-        
-});*/
+    //limpia el contenedor para cada vez que s evaya mostrar una vista
+    container.innerHTML = "";
 
-    break;
-  }
+    // se agrega appenchild porque el metodo ya no devuelve el templete
+    // como texto sino que lo devuelve como nodo de HTML
+    switch (hash) {
+        case "#/inicio":
+            container.appendChild(registration());
+            break;
+
+        case "#/login":
+            container.appendChild(login());
+            //container.appendChild(templateLogin());
+            // container.innerHTML = "<h1>Login</h1><a href='#/inicio'> Inicio</a>"
+            break;
+        case "#/post":
+            container.innerHTML = post();
+            // container.innerHTML = "<h1>Login</h1><a href='#/inicio'> Inicio</a>"
+            break;
+        case "#/muro":
+            container.innerHTML = muro();
+            // container.innerHTML = "<h1>Login</h1><a href='#/inicio'> Inicio</a>"
+            break;
+        default:
+            container.innerHTML = registration();
+            break;
+    }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-  /*ejemplo 
+/*ejemplo 
   document.querySelectorAll(".menu-item").forEach((item) => {
     item.addEventListener("click", function (eveneto) {
       const ruta = eveneto.target.getAttribute("ruta");
@@ -81,4 +62,3 @@ export function mostrarVista(hash){
   }
   
   renderizarPagina(window.location.hash);*/
-  
