@@ -1,15 +1,17 @@
 import {
     getAuth,
+    GoogleAuthProvider,
+    signInWithPopup,
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword,
 } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js";
 
-//funsion de registro
+//funcion de registro
 export const registrarUsusario = (email, password) => {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
         .then((resultado) => {
-            console.log("Mensaje desde auth/index.js");
+            console.log("HOLANKOPO");
             console.log(resultado);
         })
         .catch((error) => {
@@ -18,7 +20,7 @@ export const registrarUsusario = (email, password) => {
         });
 };
 
-//Funsion de inicio de sesion
+//Funcion de inicio de sesion
 export const inciarSesion = (email, password) => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
@@ -29,5 +31,22 @@ export const inciarSesion = (email, password) => {
         .catch((error) => {
             console.log("Error no tiene acceso");
             console.log(error);
+        });
+};
+
+//funcion para iniciar sesion con google
+export const iniciarSesionGoogle = () => {
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            console.log(result);
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            //console.log("se registro con google...")
+        })
+        .catch((error) => {
+            console.log(error);
+            const credential = GoogleAuthProvider.credentialFromError(error);
+            console.log("su cuenta no es valida...");
         });
 };

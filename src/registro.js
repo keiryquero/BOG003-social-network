@@ -1,5 +1,4 @@
-import { registrarUsusario } from "./auth/index.js";
-
+import { registrarUsusario, iniciarSesionGoogle } from "./auth/index.js";
 export const registration = () => {
     const templateRegistro = `
     <div>
@@ -41,7 +40,7 @@ export const registration = () => {
                     placeholder="Password"
                 /><br />
                 <p>Acepto <a href="#">terminos y condiciones</a></p>
-                <button id="btn-resgistrarse" type="submit">Crear cuenta</button
+                <button id="btn-resgistrarse" type="submit">CREAR CUENTA</button
                 ><br />
                 <p>
                     ¿Ya estas registrado?
@@ -50,10 +49,10 @@ export const registration = () => {
             </form>
         </div>
     </div>`;
-//se crea un elemto tipo template para insertarle el texto de la plantilla
+    //se crea un elemto tipo template para insertarle el texto de la plantilla
     let template = document.createElement("template");
-    template.innerHTML = templateRegistro;
- // se obtiene el formulario dentro el elemnto template
+    template.innerHTML = templateRegistro; //remplaza
+    // se obtiene el formulario dentro el elemnto template
     let form = template.content.querySelector("#formularioRegistro");
 
     form.addEventListener("submit", (evt) => {
@@ -62,9 +61,14 @@ export const registration = () => {
         let password = document.querySelector("#password-one").value;
 
         console.log("Registrando...");
- // se importa la funcion iniciar sesion de auth/index.js y se llama
+        // se importa la funcion iniciar sesion de auth/index.js y se llama
         registrarUsusario(email, password);
     });
-// el retunr ya no devuelve el texto del template sino que devuelve un nodo de HTML
+
+    let registroGoogle = template.content.querySelector("#registro-google");
+    registroGoogle.addEventListener("click", (evento) => {
+        iniciarSesionGoogle();
+    });
+    // el retunr ya no devuelve el texto del template sino que devuelve un nodo de HTML
     return template.content;
 };
