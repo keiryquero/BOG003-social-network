@@ -1,7 +1,7 @@
 import { registrarUsusario, iniciarSesionGoogle } from "./auth/index.js";
 export const registration = () => {
     const templateRegistro = `
-    <div>
+    <div  class="contenedor-registro">
         <div class="contenedor-central">
         <h1 class="titulo">ALKEVE RESTAURANT SIDE</h1>
         <br />

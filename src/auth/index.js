@@ -50,3 +50,19 @@ export const iniciarSesionGoogle = () => {
             console.log("su cuenta no es valida...");
         });
 };
+
+export const logueoConGoogle = () => {
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            console.log(result);
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            //console.log("se registro con google...")
+        })
+        .catch((error) => {
+            console.log(error);
+            const credential = GoogleAuthProvider.credentialFromError(error);
+            console.log("su cuenta no es valida...");
+        });
+};
