@@ -30,7 +30,7 @@ export function mostrarVista(hash) {
             // container.innerHTML = "<h1>Login</h1><a href='#/inicio'> Inicio</a>"
             break;
         default:
-            container.innerHTML = registration();
+          container.appendChild(registration());
             break;
     }
 }

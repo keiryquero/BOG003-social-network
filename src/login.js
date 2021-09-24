@@ -1,4 +1,4 @@
-import { inciarSesion } from "./auth/index.js";
+import { inciarSesion, logueoConGoogle } from "./auth/index.js";
 
 export const login = () => {
 
@@ -7,14 +7,15 @@ export const login = () => {
     <div> 
     <div> <img class="galeria"src="img/ejemplorestaurantes.jpg" alt="Imagen ejemplo restaurantes"><br><br>
   </div> 
-  <div> 
+  <div class="title-login"> 
     <h1> welcome back </h1>,
   </div> 
-  <div>
-    <form id="login">
+  <div class="form-login">
+  <button id="login-google" class="registro-google" type="button">Iniciar sesión con Google</button><br /><br />
+    <form class= "login" id="login">
       <input type="email" class="form" id="email-login" value="" placeholder="Email">
       <input type= "password" class="form" id="password-two" value="" placeholder="Password">
-      <button id="btn-login" type="submit">Ingresar</button>
+      <button id="btn-login" type="submit">INGRESAR</button>
       <p>¿NO estas registrado aun? <a href="#/inicio">ingresa aquí</a></p>
    </form>
   </div>
@@ -29,11 +30,17 @@ export const login = () => {
         evt.preventDefault();
         let email = document.querySelector("#email-login").value;
         let password = document.querySelector("#password-two").value;
+        
 
         console.log("Iniciando sesion...");
         // se importa la funcion iniciar sesion de auth/index.js y se llama
         inciarSesion(email, password);
+      
     });
+    let loginGoogle = template.content.querySelector("#login-google");
+    loginGoogle.addEventListener("click", (evento) => {
+     logueoConGoogle();
+});
     // el retunr ya no devuelve el texto del template sino que devuelve un nodo de HTML
     return template.content;
   
