@@ -23,11 +23,11 @@ export const inciarSesion = (email, password) => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
         .then((resultado) => {
-            console.log("Mensaje desde auth/index.js");
+            console.log("Ya tiene acceso al post");
             console.log(resultado);
         })
         .catch((error) => {
-            console.log("Mensaje desde auth/index.js");
+            console.log("Error no tiene acceso");
             console.log(error);
         });
 };
