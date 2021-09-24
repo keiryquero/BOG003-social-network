@@ -13,8 +13,9 @@ export const registrarUsusario = (email, password) => {
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
         .then((resultado) => {
-            resolve(resultado);
-            console.log(resultado);
+           console.log(resultado);
+           window.location.hash = '#/post';
+
         })
         .catch((error) => {
             reject(error)
@@ -34,8 +35,9 @@ export const inciarSesion = (email, password) => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
         .then((resultado) => {
-            console.log("Mensaje desde auth/index.js");
-            console.log(resultado);
+            console.log("Ya tiene acceso al post");
+            window.location.hash = '#/post';
+
         })
         .catch((error) => {
             console.log("Mensaje desde auth/index.js");
@@ -51,7 +53,9 @@ export const iniciarSesionGoogle = () => {
         .then((result) => {
             console.log(result);
             const credential = GoogleAuthProvider.credentialFromResult(result);
+            window.location.hash = '#/post';
             //console.log("se registro con google...")
+        
         })
         .catch((error) => {
             console.log(error);
@@ -67,7 +71,9 @@ export const logueoConGoogle = () => {
         .then((result) => {
             console.log(result);
             const credential = GoogleAuthProvider.credentialFromResult(result);
+            window.location.hash = '#/post';
             //console.log("se registro con google...")
+
         })
         .catch((error) => {
             console.log(error);

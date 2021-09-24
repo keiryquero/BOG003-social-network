@@ -171,7 +171,9 @@ select {
 footer {
   background: #f1efef;
   width: 100%;
-  height: 80px;
+  height: 100px;
+  background-image: linear-gradient(to right, #e9912c 0%, #feed00de 100%);
+
 }
 
 footer p {
