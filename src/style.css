@@ -22,11 +22,13 @@ body {
   box-shadow: 0 5px 5px rgba(120, 121, 122, 0.603);
 }
 
-.menu-header .menu-nav {
+.menu-nav {
   text-decoration: none;
   list-style: none;
 }
-
+.menu-nav{
+  display: none;
+}
 .contenedor-template {
   background-color: white;
   width: 100%;

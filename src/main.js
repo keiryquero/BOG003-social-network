@@ -40,7 +40,14 @@ window.addEventListener("hashchange", () => {
 });
 
 
-//intaciar los formularios de cada vista
+//Mostrar menú en las vistas de post y muro.
+
+
+
+
+
+
+
 
 // const registerform = document.querySelector("#formularioRegistro");
 // console.log(registerform);
