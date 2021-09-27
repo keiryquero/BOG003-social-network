@@ -11,9 +11,17 @@ export const registrarUsusario = (email, password) => {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
         .then((resultado) => {
-            console.log("HOLANKOPO");
-            console.log(resultado);
+        console.log(resultado);
+        window.location.hash = '#/post';
+        /*setTimeout(() => {
+            if (!resultado) {
+              resultado.innerHTML = '⚠️ Debe validar su correo para iniciar sesión';
+            } else {
+              window.location.hash = '#/inicio';
+            }
+          }, 1000);*/
         })
+
         .catch((error) => {
             console.log("Mensaje desde auth/index.js");
             console.log(error);
@@ -26,7 +34,7 @@ export const inciarSesion = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
         .then((resultado) => {
             console.log("Ya tiene acceso al post");
-            console.log(resultado);
+            window.location.hash = '#/post';
         })
         .catch((error) => {
             console.log("Error no tiene acceso");
@@ -42,6 +50,7 @@ export const iniciarSesionGoogle = () => {
         .then((result) => {
             console.log(result);
             const credential = GoogleAuthProvider.credentialFromResult(result);
+            window.location.hash = '#/post';
             //console.log("se registro con google...")
         })
         .catch((error) => {
@@ -50,7 +59,7 @@ export const iniciarSesionGoogle = () => {
             console.log("su cuenta no es valida...");
         });
 };
-
+//funcion para Loguearse con google
 export const logueoConGoogle = () => {
     const auth = getAuth();
     const provider = new GoogleAuthProvider();
@@ -58,6 +67,7 @@ export const logueoConGoogle = () => {
         .then((result) => {
             console.log(result);
             const credential = GoogleAuthProvider.credentialFromResult(result);
+            window.location.hash = '#/post';
             //console.log("se registro con google...")
         })
         .catch((error) => {
