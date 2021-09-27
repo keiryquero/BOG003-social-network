@@ -110,6 +110,63 @@ body {
   color: rgb(0, 0, 0);
   font-size: 18px;
 }
+/*div de tarjetas que van en el muro*/
+.tarjeta {
+  width: 200px;
+  height: 300px;
+  background-color: rgba(128, 255, 0, 0.527);
+  border: 1px #0ae2f1f6 solid;
+  margin: 5px;
+  padding: 5px;
+}
+
+.tarjeta > .foto {
+  background-color: rgba(242, 255, 0, 0.527);
+  width: 100%;
+  height: 50%;
+  text-align: center;
+}
+.tarjeta > .foto > img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
+.tarjeta > .bio {
+  overflow-y: auto;
+  max-height: 50%;
+}
+
+.barra {
+  color: rgb(26, 18, 5);
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: right;
+  background: #E08A08;
+  display: flex;
+  
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.filtro-prueba {
+  text-align: right;
+  box-sizing: border-box;
+  width: 70px;
+  font-size: 20pt;
+  font-family: "Indie Flower", cursive;
+}
+
+select {
+  background-color: black;
+  /* line-height: 20px; */
+  font-size: 16pt;
+  border: 1px white solid;
+  border-radius: 15px;
+  color: white;
+  border: 3px #81ff68 solid;
+}
 
 footer {
   background: #f1efef;
@@ -118,6 +175,7 @@ footer {
   background-image: linear-gradient(to right, #e9912c 0%, #feed00de 100%);
 
 }
+
 footer p {
   /*border-bottom: 3px solid #af20d3;*/
   text-align: center;
@@ -203,6 +261,8 @@ footer{
       max-width: 600px;  
     }
 
+
+
 footer{
   width: 100% ;   
   max-width: 600px;  
@@ -232,6 +292,7 @@ footer{
       width: 100% ; 
       max-width: 900px;  
     }
+
 footer{
   width: 100% ; 
   max-width: 900px;   
