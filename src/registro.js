@@ -62,7 +62,11 @@ export const registration = () => {
 
         console.log("Registrando...");
         // se importa la funcion iniciar sesion de auth/index.js y se llama
-        registrarUsusario(email, password);
+        registrarUsusario(email, password).then(()=>{
+            console.log("ususario registrado correctamente")
+        }).catch(()=>{
+            console.log("ocurrio un error registrando usuario")
+        });
     });
 
     let registroGoogle = template.content.querySelector("#registro-google");
