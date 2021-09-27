@@ -29,6 +29,7 @@ import { mostrarVista } from "./router.js";
 //carga la pagina
 document.addEventListener("DOMContentLoaded", () => {
     const locationRood = window.location.hash;
+    
     return mostrarVista(locationRood);
 });
 //escucha el cambio del hash(vista)
@@ -38,8 +39,9 @@ window.addEventListener("hashchange", () => {
     console.log(locationRood);
     mostrarVista(locationRood);
 });
+ 
 
 
-
-
-
+/* mostrar el menu en la vista de post y muro
+const menu = document.getElementById("menu");
+document.getElementById("menu-nav").style.display = "block";*/

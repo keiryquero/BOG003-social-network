@@ -22,10 +22,13 @@ export function mostrarVista(hash) {
             break;
         case "#/post":
             container.innerHTML = post();
+            document.getElementById("menu-nav").style.display = "block";
+
             // container.innerHTML = "<h1>Login</h1><a href='#/inicio'> Inicio</a>"
             break;
         case "#/muro":
             container.innerHTML = muro();
+            document.getElementById("menu-nav").style.display = "block";
             // container.innerHTML = "<h1>Login</h1><a href='#/inicio'> Inicio</a>"
             break;
         default:
