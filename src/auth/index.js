@@ -4,7 +4,10 @@ import {
     signInWithPopup,
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword,
+
 } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js";
+
 
 //funcion de registro
 export const registrarUsusario = (email, password) => {
@@ -13,10 +16,17 @@ export const registrarUsusario = (email, password) => {
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
         .then((resultado) => {
-           console.log(resultado);
-           window.location.hash = '#/post';
-
+        console.log(resultado);
+        window.location.hash = '#/post';
+        /*setTimeout(() => {
+            if (!resultado) {
+              resultado.innerHTML = '⚠️ Debe validar su correo para iniciar sesión';
+            } else {
+              window.location.hash = '#/inicio';
+            }
+          }, 1000);*/
         })
+
         .catch((error) => {
             reject(error)
             console.log("Mensaje desde auth/index.js");
@@ -37,10 +47,9 @@ export const inciarSesion = (email, password) => {
         .then((resultado) => {
             console.log("Ya tiene acceso al post");
             window.location.hash = '#/post';
-
         })
         .catch((error) => {
-            console.log("Mensaje desde auth/index.js");
+            console.log("Error no tiene acceso");
             console.log(error);
         });
 };
@@ -63,7 +72,7 @@ export const iniciarSesionGoogle = () => {
             console.log("su cuenta no es valida...");
         });
 };
-
+//funcion para Loguearse con google
 export const logueoConGoogle = () => {
     const auth = getAuth();
     const provider = new GoogleAuthProvider();
@@ -81,3 +90,17 @@ export const logueoConGoogle = () => {
             console.log("su cuenta no es valida...");
         });
 };
+
+//Función para inicializar Firestore
+
+
+try {
+  const docRef = await addDoc(collection(db, "users"), {
+    first: "Ada",
+    last: "Lovelace",
+    born: 1815
+  });
+  console.log("Document written with ID: ", docRef.id);
+} catch (e) {
+  console.error("Error adding document: ", e);
+}
