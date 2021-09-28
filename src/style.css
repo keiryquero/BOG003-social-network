@@ -15,7 +15,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  background-image: linear-gradient(to right, #e9912c 0%, #feed00de 100%);
+  background-image: linear-gradient(to top, #98DBC6 10%, #41B5AF 100%);
   width: 100%;
   height: 180px;
   border-radius: 5px;
@@ -69,20 +69,20 @@ body {
 
 .contenedor-form .form {
   width: 300px;
-  background: rgb(252, 252, 252);
+  background: #98DBC6;
   padding: 10px;
   border-radius: 4px;
   margin-bottom: 15px;
-  border: 1px solid #d36a07dc;
+  border: 1px solid  #41B5AF;
 }
 
 .form{ /*input del login*/
   width: 300px;
-  background: rgb(252, 252, 252);
+  background: #98DBC6;
   padding: 10px;
   border-radius: 4px;
   margin-bottom: 15px;
-  border: 1px solid  #d36a07dc;
+  border: 1px solid  #41B5AF;
 }
 #btn-login,#btn-resgistrarse{
   border-radius: 10px;
@@ -92,9 +92,9 @@ body {
     font-size: 16px;
     margin-top: 10px;
     color: black;
-    background-color: #E08A08;
+    background-color: #41B5AF;
     text-align: center;
-    border: #e9912c;
+    border: #000000;
 
 }
 
@@ -174,7 +174,8 @@ footer {
   background: #f1efef;
   width: 100%;
   height: 100px;
-  background-image: linear-gradient(to right, #e9912c 0%, #feed00de 100%);
+  /*background-image: linear-gradient(to right, #e9912c 0%, #feed00de 100%);*/
+  background: #98DBC6;
 
 }
 
