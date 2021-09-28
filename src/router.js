@@ -21,14 +21,15 @@ export function mostrarVista(hash) {
             // container.innerHTML = "<h1>Login</h1><a href='#/inicio'> Inicio</a>"// cuando reemplaza por un elemento html
             break;
         case "#/post":
-            container.innerHTML = post();
-            document.getElementById("menu-nav").style.display = "block";
+            container.appendChild(post());
+            //container.innerHTML = post();
+            //document.getElementById("menu-nav").style.display = "block";
 
             // container.innerHTML = "<h1>Login</h1><a href='#/inicio'> Inicio</a>"
             break;
         case "#/muro":
             container.innerHTML = muro();
-            document.getElementById("menu-nav").style.display = "block";
+            //document.getElementById("menu-nav").style.display = "block";
             // container.innerHTML = "<h1>Login</h1><a href='#/inicio'> Inicio</a>"
             break;
         default:

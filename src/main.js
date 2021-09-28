@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-analytics.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js";
 //import {
     //getAuth,
     //signInWithEmailAndPassword,
@@ -24,6 +25,8 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+const database = firebase.firestore();
+
 
 import { mostrarVista } from "./router.js";
 //carga la pagina
