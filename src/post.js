@@ -17,7 +17,6 @@ export const post = () => {
     </form>
     </div>
   `;
-
   return templatePost;
 };
 
@@ -31,6 +30,9 @@ export const post = () => {
   evt.preventDefault();
   let nombre = document.querySelector("#nombre-restaurante").value;
   let descripcion = document.querySelector("#datos-restaurante").value;
+  
+
+  });
 
 // Add a new document in collection "cities"
 await setDoc(doc(db, "cities", "LA"), {
