@@ -1,4 +1,5 @@
 import { registrarUsusario, iniciarSesionGoogle } from "./auth/index.js";
+
 export const registration = () => {
     const templateRegistro = `
     <div  class="contenedor-registro">
