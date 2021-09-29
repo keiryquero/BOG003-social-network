@@ -92,8 +92,6 @@ export const logueoConGoogle = () => {
 };
 
 //Función para inicializar Firestore
-
-
 try {
   const docRef = await addDoc(collection(db, "users"), {
     first: "Ada",
