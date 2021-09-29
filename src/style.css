@@ -3,25 +3,22 @@
   margin: 0;
   box-sizing: border-box;
 }
-
 body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-
 .menu-header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  background-image: linear-gradient(to right, #e9912c 0%, #feed00de 100%);
+  background-image: linear-gradient(to top, #98DBC6 10%, #41B5AF 100%);
   width: 100%;
   height: 180px;
   border-radius: 5px;
   box-shadow: 0 5px 5px rgba(120, 121, 122, 0.603);
 }
-
 .menu-nav {
   text-decoration: none;
   list-style: none;
@@ -34,7 +31,6 @@ body {
   width: 100%;
   height: 70%;
 }
-
 .contenedor-template h1 {
   text-align: center;
   font-size: 36px;
@@ -66,23 +62,21 @@ body {
   border-radius: 5px;
   box-shadow: 0 5px 5px rgba(120, 121, 122, 0.603);
 }
-
 .contenedor-form .form {
   width: 300px;
-  background: rgb(252, 252, 252);
+  background: #98DBC6;
   padding: 10px;
   border-radius: 4px;
   margin-bottom: 15px;
-  border: 1px solid #d36a07dc;
+  border: 1px solid  #41B5AF;
 }
-
 .form{ /*input del login*/
   width: 300px;
-  background: rgb(252, 252, 252);
+  background: #98DBC6;
   padding: 10px;
   border-radius: 4px;
   margin-bottom: 15px;
-  border: 1px solid  #d36a07dc;
+  border: 1px solid  #41B5AF;
 }
 #btn-login,#btn-resgistrarse{
   border-radius: 10px;
@@ -92,18 +86,16 @@ body {
     font-size: 16px;
     margin-top: 10px;
     color: black;
-    background-color: #E08A08;
+    background-color: #41B5AF;
     text-align: center;
-    border: #e9912c;
+    border: #000000;
 
 }
-
 .title-login h1{
   align-items: center;
   text-align: center;
   font-size: 30px;
 }
-
 /* Div del boton de registro*/
 .contenedor-form .registro-google {
   /*background-image: url(img/google.png);*/
@@ -121,7 +113,6 @@ body {
   margin: 5px;
   padding: 5px;
 }
-
 .tarjeta > .foto {
   background-color: rgba(242, 255, 0, 0.527);
   width: 100%;
@@ -174,7 +165,8 @@ footer {
   background: #f1efef;
   width: 100%;
   height: 100px;
-  background-image: linear-gradient(to right, #e9912c 0%, #feed00de 100%);
+  /*background-image: linear-gradient(to right, #e9912c 0%, #feed00de 100%);*/
+  background: #98DBC6;
 
 }
 
