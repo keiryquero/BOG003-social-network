@@ -1,7 +1,7 @@
-import { doc, setDoc } from "firebase/firestore";
+//import {db,doc, setDoc} from "./auth/main.js";
 
 export const post = () => {
-    const templatePost = `
+  const templatePost = `
     <div id ="contenedor-post" class = "contenedor-post">
     <form class = "formulario-post">
     <div class = "Formgrupo">        
@@ -17,26 +17,26 @@ export const post = () => {
     </form>
     </div>
   `;
-  return templatePost;
-};
+  //se crea un elemto tipo template para insertarle el texto de la plantilla
+  let template = document.createElement("template");
+  template.innerHTML = templatePost; //reemplaza
+  // se obtiene el formulario dentro el elemnto template
+  let form = template.content.querySelector("#formulario-post");
 
- //se crea un elemto tipo template para insertarle el texto de la plantilla
- let template = document.createElement("template");
- template.innerHTML = templatePost; //remplaza
- // se obtiene el formulario dentro el elemnto template
- let form = template.content.querySelector("#formulario-post");
-
- form.addEventListener("submit", (evt) => {
+  /*form.addEventListener("submit", (evt) => {
   evt.preventDefault();
   let nombre = document.querySelector("#nombre-restaurante").value;
   let descripcion = document.querySelector("#datos-restaurante").value;
   
 
-  });
+  });*/
 
-// Add a new document in collection "cities"
+  return template.content;
+};
+
+/* Add a new document in collection "cities"
 await setDoc(doc(db, "cities", "LA"), {
   name: "Los Angeles",
   state: "CA",
   country: "USA"
-});
+});*/
