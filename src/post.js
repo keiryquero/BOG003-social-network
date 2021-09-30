@@ -17,26 +17,19 @@ export const post = () => {
     </form>
     </div>
   `;
-  return templatePost;
-};
 
- //se crea un elemto tipo template para insertarle el texto de la plantilla
+   //se crea un elemto tipo template para insertarle el texto de la plantilla
  let template = document.createElement("template");
  template.innerHTML = templatePost; //remplaza
  // se obtiene el formulario dentro el elemnto template
  let form = template.content.querySelector("#formulario-post");
+  return templatePost;
 
- form.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  let nombre = document.querySelector("#nombre-restaurante").value;
-  let descripcion = document.querySelector("#datos-restaurante").value;
-  
+  //form.addEventListener("submit", (evt) => {
+    //evt.preventDefault();
+    //let nombre = document.querySelector("#nombre-restaurante").value;
+    //let descripcion = document.querySelector("#datos-restaurante").value;
+    
 
-  });
+}
 
-// Add a new document in collection "cities"
-await setDoc(doc(db, "cities", "LA"), {
-  name: "Los Angeles",
-  state: "CA",
-  country: "USA"
-});
