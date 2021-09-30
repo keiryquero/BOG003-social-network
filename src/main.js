@@ -18,11 +18,12 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
+//export const firebaseApp = firebase.initializeApp(firebaseConfig);
 export const app = initializeApp(firebaseConfig);
-export const db = firebase.getFirestore(app);
-//const database = firebase.firestore();
+export const db = getFirestore(app);
 
-// inicia el ruteo
+
+// Inicio del routeo
 import { mostrarVista } from "./router.js";
 //carga la pagina
 document.addEventListener("DOMContentLoaded", () => {
