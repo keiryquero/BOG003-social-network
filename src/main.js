@@ -26,7 +26,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export default db;
+
 
 
 //carga la pagina
@@ -46,3 +46,5 @@ window.addEventListener("hashchange", () => {
 /* mostrar el menu en la vista de post y muro
 const menu = document.getElementById("menu");
 document.getElementById("menu-nav").style.display = "block";*/
+
+export default db;
