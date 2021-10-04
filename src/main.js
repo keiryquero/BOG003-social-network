@@ -1,7 +1,11 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js";
+//import { initializeApp } from "firebase/app"
+//import { getFirestore } from "firebase/firestore"
 
+// Inicio del routeo
+import { mostrarVista } from "./router.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,12 +23,12 @@ const firebaseConfig = {
 
 // Initialize Firebase
 //export const firebaseApp = firebase.initializeApp(firebaseConfig);
-export const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
 
-// Inicio del routeo
-import { mostrarVista } from "./router.js";
+
+
 //carga la pagina
 document.addEventListener("DOMContentLoaded", () => {
     const locationRood = window.location.hash;
@@ -44,3 +48,5 @@ window.addEventListener("hashchange", () => {
 /* mostrar el menu en la vista de post y muro
 const menu = document.getElementById("menu");
 document.getElementById("menu-nav").style.display = "block";*/
+
+export default db;
