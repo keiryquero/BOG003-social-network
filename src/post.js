@@ -1,34 +1,18 @@
-/*import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
-import {
-  getFirestore,
-  doc,
-  setDoc,
-} from "https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js";*/
 import {
   collection,
+  doc,
   addDoc,
   getDocs,
+  setDoc,
+  deleteDoc, 
 } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js";
-//import { app } from "./main.js";
-import db from "./main.js";
-/*const firebaseConfig = {
-  apiKey: "AIzaSyDGmKzcSHyRp56lPmYE9r4hCsHnT0jeR_Y",
-  authDomain: "social-network-1c5d2.firebaseapp.com",
-  projectId: "social-network-1c5d2",
-  storageBucket: "social-network-1c5d2.appspot.com",
-  messagingSenderId: "514107260716",
-  appId: "1:514107260716:web:77ff03537478a07489b689",
-  measurementId: "G-3GHVJ77MJ3",
-};
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);*/
+import db from "./main.js";
 
 export const post = () => {
     //se crea un elemento tipo template para insertarle el texto de la plantilla
   let contenedor = document.createElement("div");
   //let contenedorTarjeta = document.createElement("div");
-
 
   const templatePost = `
     <section id ="contenedor-post" class = "contenedor-post">
@@ -47,8 +31,8 @@ export const post = () => {
     </section>
 
     
-    <section id ="contenedor-Publicacion" class = "contenedor-post">
-    <div id = "tarjetas-publicacion" background: #98DBC6;>      
+    <section id ="contenedor-publicacion" class = "publicacion">
+    <div id = "tarjetas-publicacion" >   segundo plano   
     </div>
 
     
@@ -60,14 +44,14 @@ export const post = () => {
 
   // se obtiene el formulario dentro el elemnto template
   let formPost = contenedor.querySelector("#formulario-post");
-  let tarjetas = contenedorTarjeta.querySelector("#contenedor-Publicacion");
+  //let tarjetas = contenedorTarjeta.querySelector("#contenedor-Publicacion");
 
   formPost.addEventListener("submit", (evt) => {
     evt.preventDefault();
     let nombre = document.querySelector("#nombre-restaurante").value;
     let descripcion = document.querySelector("#datos-restaurante").value;
 
-    console.log(nombre, descripcion);
+    //console.log(nombre, descripcion);
 
      crearPost(nombre, descripcion)
       .then(() => {
@@ -81,12 +65,11 @@ export const post = () => {
   let btnPublicar = contenedor.querySelector("#btn-publicar");
   btnPublicar.addEventListener("click", (evento) => {
     leerDatos();
-    //console.log("botón publicar")
+     
   });
 
   return contenedor;
 };
-
 // Agregar una colección
 const crearPost = async (nombre, descripcion) =>{
   
@@ -102,7 +85,7 @@ const crearPost = async (nombre, descripcion) =>{
 }
 }
 
-// Leer y mostrar la publiacción del post
+// Leer la publiación del post
 
 const leerDatos = async () => {
 const querySnapshot = await getDocs(collection(db, "publicaciones"));
@@ -113,5 +96,14 @@ querySnapshot.forEach((documento) => {
   //console.log(`${doc.id} => ${doc.data()}`);
 });
 
-
 }
+//Función para mostrar la publicación
+const enlistarTareas= () => db. collection("publicaciones").getDoc();
+console.log(enlistarTareas);
+
+
+
+
+// Metodo para borrar un documento creado en firetore
+
+//await deleteDoc(doc(db, "cities", "DC"));
