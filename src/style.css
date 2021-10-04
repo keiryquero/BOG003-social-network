@@ -107,6 +107,14 @@ body {
   color: rgb(0, 0, 0);
   font-size: 18px;
 }
+/* Segundo div de la vista de post*/
+.publicacion {
+  
+  border: 1px #0ae2f1f6 solid;
+ 
+
+}
+
 /*div de tarjetas que van en el muro*/
 .tarjeta {
   width: 200px;
