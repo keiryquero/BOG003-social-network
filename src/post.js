@@ -3,6 +3,8 @@ import {
   doc,
   addDoc,
   getDocs,
+  query,
+  where,
   setDoc,
   deleteDoc, 
 } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js";
@@ -26,15 +28,17 @@ export const post = () => {
       placeholder="Describe los datos: Costo, horario y ubicación"></textarea>
     </div>
 
-    <button id="btn-publicar" type="submit">PUBLICAR</button
+    <button id="btn-publicar" type="submit">PUBLICAR</button>
+
+    
     </form>
     </section>
-
     
     <section id ="contenedor-publicacion" class = "publicacion">
     <div id = "tarjetas-publicacion" >   segundo plano   
-    </div>
 
+    <button id="btn-prueba" type="click"></button>
+    </div>
     
     </section>
   `;
@@ -98,12 +102,18 @@ querySnapshot.forEach((documento) => {
 
 }
 //Función para mostrar la publicación
-const enlistarTareas= () => db. collection("publicaciones").getDoc();
+//const enlistarTareas= () => db. collection("publicaciones").getDoc();
+//console.log(enlistarTareas);
+
+const enlistarTareas  = async () =>{
+const listaTareas = query(collection(db, "publicaciones"), where("nombreRestaurante", "==", true));
+const querySnapshot = await getDocs(listaTareas);
+querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+  console.log(doc.id, " => ", doc.data());
+});
 console.log(enlistarTareas);
-
-
-
-
+} 
 // Metodo para borrar un documento creado en firetore
 
 //await deleteDoc(doc(db, "cities", "DC"));
