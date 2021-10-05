@@ -18,6 +18,10 @@ body {
   border-radius: 5px;
   box-shadow: 0 5px 5px rgba(120, 121, 122, 0.603);
 }
+.btn-salir{
+  background-image: linear-gradient(to top, #98DBC6 10%, #41B5AF 100%);
+  margin-left: auto;
+}
 .menu-nav {
   text-decoration: none;
   list-style: none;
@@ -26,9 +30,9 @@ body {
 }
 
 
-/*.menu-nav{
+.menu-nav{
   display: none;
-}*/
+}
 .contenedor-template {
   background-color: white;
   width: 100%;
@@ -111,6 +115,8 @@ body {
 .publicacion {
   
   border: 1px #0ae2f1f6 solid;
+  width: 200px;
+  height: 300px;
  
 
 }
