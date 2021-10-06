@@ -79,3 +79,15 @@ export const logueoConGoogle = () => {
       console.log("su cuenta no es valida...");
     });
 };
+
+//Función para inicializar Firestore
+/*try {
+  const docRef = await addDoc(collection(db, "users"), {
+    first: "Ada",
+    last: "Lovelace",
+    born: 1815
+  });
+  console.log("Document written with ID: ", docRef.id);
+} catch (e) {
+  console.error("Error adding document: ", e);
+}*/
