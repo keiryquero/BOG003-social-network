@@ -9,9 +9,7 @@ import db from "./main.js";
 export const post = () => {
   //se crea un elemento tipo template para insertarle el texto de la plantilla
   let contenedor = document.createElement("div");
-  //let contenedorTarjeta = document.createElement("div");
-
-  const templatePost = `
+    const templatePost = `
     <section id ="contenedor-post" class = "contenedor-post">
     <form id = "formulario-post">
     <div class = "Formgrupo">        
@@ -28,11 +26,7 @@ export const post = () => {
     </section>
 
     
-    <section id ="contenedor-Publicacion" class = "publicacion">
-    
-    
-    
-    </section>
+    <section id ="contenedor-Publicacion" class = "publicacion"></section>
   `;
 
   contenedor.innerHTML = templatePost; //reemplaza
@@ -89,26 +83,24 @@ window.addEventListener("DOMContentLoaded", (e) => {
 
 const leerDatos = async () => {
   const querySnapshot = await getDocs(collection(db, "publicaciones"));
-
   querySnapshot.forEach((documento) => {
-    //console.log(documento.data());
-    mostrarPost(documento.data());
+    console.log("hola",documento.id);
+    mostrarPost(documento.data(),documento.id);
     //console.log(`${doc.id} => ${doc.data()}`);
   });
 };
 //Crear Div para mostrar historial de posts
-const mostrarPost = (post) => {
+const mostrarPost = (post, id) => {
   //document.getElementById("postTarjeta").innerHTML= "";
   let tarjetas = document.querySelector("#contenedor-Publicacion");
 
   const postTarjeta = document.createElement("div");
-  postTarjeta.classList.add("postTarjeta");
-  postTarjeta.dataset.id = "123";
+  console.log(post);
+  postTarjeta.dataset.id = id;
   postTarjeta.className = "tarjetas-publicacion";
-  postTarjeta.innerHTML = `<p>${post.descripcion}</p> `;
+  postTarjeta.innerHTML = `<p>${post.descripcion}</p> 
+  <button data-id = "${id} ">click</button>`;
   tarjetas.appendChild(postTarjeta);
 };
 
-// Metodo para borrar un documento creado en firetore
 
-//await deleteDoc(doc(db, "cities", "DC"));
