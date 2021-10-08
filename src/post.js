@@ -2,6 +2,10 @@ import {
   collection,
   addDoc,
   getDocs,
+  query,
+  where,
+  setDoc,
+  deleteDoc, 
 } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js";
 //import { app } from "./main.js";
 import db from "./main.js";
@@ -12,16 +16,19 @@ export const post = () => {
     const templatePost = `
     <section id ="contenedor-post" class = "contenedor-post">
     <form id = "formulario-post">
-    <div class = "Formgrupo">        
-      <input type = "text" id = "nombre-restaurante" placeholder="Nombre del Restaurante">
+    <div class = "form-grupo">        
+      <input type = "text" id = "nombre-restaurante" class = "nombre-restaurante" placeholder="Nombre del Restaurante">
     </div>
 
-    <div class = "formgrupo">
+    <div class = "form-grupo">
       <textarea id ="datos-restaurante" rows="8" class = "datos-restaurante" 
       placeholder="Describe los datos: Costo, horario y ubicación"></textarea>
     </div>
+    <button id="btn-editar" type="submit"><i style='font-size:24px' class='far'>&#xf044;</i></button>
+    <button id="btn-borrar" type="submit"><i style='font-size:24px' class='far'>&#xf410;</i></button>
+    <button id="btn-publicar" type="submit">PUBLICAR</button>
 
-    <button id="btn-publicar" type="submit">PUBLICAR</button
+    
     </form>
     </section>
 
@@ -83,6 +90,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
 
 const leerDatos = async () => {
   const querySnapshot = await getDocs(collection(db, "publicaciones"));
+  
   querySnapshot.forEach((documento) => {
     console.log("hola",documento.id);
     mostrarPost(documento.data(),documento.id);
@@ -93,13 +101,17 @@ const leerDatos = async () => {
 const mostrarPost = (post, id) => {
   //document.getElementById("postTarjeta").innerHTML= "";
   let tarjetas = document.querySelector("#contenedor-Publicacion");
-
   const postTarjeta = document.createElement("div");
-  console.log(post);
+  
   postTarjeta.dataset.id = id;
   postTarjeta.className = "tarjetas-publicacion";
-  postTarjeta.innerHTML = `<p>${post.descripcion}</p> 
-  <button data-id = "${id} ">click</button>`;
+  postTarjeta.innerHTML = `<p>${post.nombreRestaurante} <br>
+  ${post.descripcion}
+  </p> 
+  <button id="btn-like" type="submit"><i style='font-size:24px' class='far'>&#xf164;</i></button> 
+ 
+  `;
+
   tarjetas.appendChild(postTarjeta);
 };
 
