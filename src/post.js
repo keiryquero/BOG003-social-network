@@ -1,4 +1,5 @@
 import {
+  doc,
   collection,
   addDoc,
   getDocs,
@@ -27,7 +28,7 @@ export const post = () => {
       placeholder="Describe los datos: Costo, horario y ubicación"></textarea>
     </div>
     <button id="btn-editar" type="submit"><i style='font-size:24px' class='far'>&#xf044;</i></button>
-    <button id="btn-borrar" type="submit"><i style='font-size:24px' class='far'>&#xf410;</i></button>
+   
     <button id="btn-publicar" type="submit">PUBLICAR</button>
 
     
@@ -95,29 +96,40 @@ const leerDatos = async () => {
   const querySnapshot = await getDocs(collection(db, "publicaciones"));
   
   querySnapshot.forEach((documento) => {
-    //console.log(documento.data());
-    mostrarPost(documento.data());
+    //console.log(documento.data(),documento.id);
+    mostrarPost(documento.data(), documento.id);
     //console.log(`${doc.id} => ${doc.data()}`);
   });
 };
 //Crear Div para mostrar historial de posts
-const mostrarPost = (post) => {
+const mostrarPost = (post, id) => {
   //document.getElementById("postTarjeta").innerHTML= "";
   let tarjetas = document.querySelector("#contenedor-Publicacion");
-  const postTarjeta = document.createElement("div");
-  postTarjeta.classList.add("postTarjeta");
-  postTarjeta.dataset.id = "123";
+  const postTarjeta = document.createElement("div");  
+  postTarjeta.dataset.id = id;
   postTarjeta.className = "tarjetas-publicacion";
   postTarjeta.innerHTML = `<p>${post.nombreRestaurante} <br>
-  ${post.descripcion}
-  </p> 
-  <button id="btn-like" type="submit"><i style='font-size:24px' class='far'>&#xf164;</i></button> 
- 
+  ${post.descripcion}</p> 
+  <button id="btn-like" type="click" ><i style='font-size:24px' class='far'>&#xf164;</i></button> 
+  <button id="btn-borrar" type="click" data-id ="${id}" ><i style='font-size:24px' class='far'>&#xf410;</i> click</button>
   `;
 
   tarjetas.appendChild(postTarjeta);
+
+
+  let btnBorrar = postTarjeta.querySelectorAll("#btn-borrar");
+  btnBorrar.forEach ((btn) => {
+   btn.addEventListener("click", (evento) => {
+     const id = evento.target.dataset.id;
+      borrarPost(id);
+    });
+  })
 };
 
-// Metodo para borrar un documento creado en firetore
+// Metodo para borrar un documento creado en firestore
+const borrarPost = async (id) => {
+await deleteDoc(doc(db, "publicaciones", id));
+console.log("hola", id);
 
-//await deleteDoc(doc(db, "cities", "DC"));
+};
+
