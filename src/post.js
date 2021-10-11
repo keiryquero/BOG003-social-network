@@ -6,7 +6,8 @@ import {
   query,
   where,
   setDoc,
-  deleteDoc, 
+  deleteDoc,
+  updateDoc,
 } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js";
 //import { app } from "./main.js";
 import db from "./main.js";
@@ -28,7 +29,11 @@ export const post = () => {
       placeholder="Describe los datos: Costo, horario y ubicación"></textarea>
     </div>
     
+<<<<<<< HEAD
     <button id="btn-editar" type="click" ><i style='font-size:24px' class='far'>&#xf044;</i></button>
+=======
+   
+>>>>>>> e69426b501af67a84dcc4f8d765e27d756e2c8cd
     <button id="btn-publicar" type="submit">PUBLICAR</button>
 
     
@@ -94,7 +99,6 @@ window.addEventListener("DOMContentLoaded", (e) => {
 
 const leerDatos = async () => {
   const querySnapshot = await getDocs(collection(db, "publicaciones"));
-  
   querySnapshot.forEach((documento) => {
     //console.log(documento.data(),documento.id);
     mostrarPost(documento.data(), documento.id);
@@ -104,42 +108,50 @@ const leerDatos = async () => {
 //Crear Div para mostrar historial de posts
 const mostrarPost = (post, id) => {
   //document.getElementById("postTarjeta").innerHTML= "";
-  let tarjetas = document.querySelector("#contenedor-Publicacion");
-  const postTarjeta = document.createElement("div");  
+  let tarjetas = document.querySelector("#contenedorPublicacion");
+  const postTarjeta = document.createElement("div");
   postTarjeta.dataset.id = id;
   postTarjeta.className = "tarjetas-publicacion";
   postTarjeta.innerHTML = `<p>${post.nombreRestaurante} <br>
   ${post.descripcion}</p> 
   <button id="btn-like" type="click" ><i style='font-size:24px' class='far'>&#xf164;</i></button> 
-   <button id="btn-borrar" type="click" data-id ="${id}" ><i style='font-size:24px' class='far'>&#xf410;</i> click</button>
+  <i data-id ="${id}"  id="btn-borrar" style='font-size:24px' class='far'>&#xf410;</i>
+  <button id="btn-editar" type="click" data-id ="${id}"><i style='font-size:24px' class='far'>&#xf044;</i></button>
   `;
 
   tarjetas.appendChild(postTarjeta);
-
   let btnBorrar = postTarjeta.querySelectorAll("#btn-borrar");
-  btnBorrar.forEach ((btn) => {
-   btn.addEventListener("click", (evento) => {
-     const id = evento.target.dataset.id;
+  btnBorrar.forEach((btn) => {
+    btn.addEventListener("click", (evento) => {
+      const id = evento.target.dataset.id;
       console.log(id);
+      borrarPost(id);
     });
-  })
-}
-/*Botón para editar*/ 
-
- /* let btnEditar = postTarjeta.querySelectorAll("#btn-editar");
-  btnEditar.forEach ((btn) => {
-   btn.addEventListener("click", (evento) => {
-     const id = evento.target.dataset.id;
-      //borrarPost(id);
-      console.log("Aqui", id)
+  });
+  let btnEditar = postTarjeta.querySelectorAll("#btn-editar");
+  btnEditar.forEach((btn) => {
+    btn.addEventListener("click", (evento) => {
+      const id = evento.target.dataset.id;
+      console.log(id);
+      
     });
-  })*/
-
-
-
+  });
+};
 // Metodo para borrar un documento creado en firestore
 const borrarPost = async (id) => {
 await deleteDoc(doc(db, "publicaciones", id));
 console.log("hola", id);
 
 };
+
+// Metodo para editar un documento creado en firestore
+
+/*const editar = async (id) => {
+  const washingtonRef = doc(db, "publicaciones", id);
+  // Set the "capital" field of the city 'DC'
+  await updateDoc(washingtonRef, {
+    nombreRestaurante: nombre,
+    descripcion: descripcion,
+    fecha: new Date(),
+  });
+};*/
