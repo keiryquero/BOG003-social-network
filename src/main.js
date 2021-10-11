@@ -1,50 +1,44 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js";
-//import { initializeApp } from "firebase/app"
-//import { getFirestore } from "firebase/firestore"
+import {
+    getAuth,
+    onAuthStateChanged,
+} from "https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js";
 
 // Inicio del routeo
-import { mostrarVista } from "./router.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { mostrarVista } from "./lib/router.js";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyDGmKzcSHyRp56lPmYE9r4hCsHnT0jeR_Y",
-  authDomain: "social-network-1c5d2.firebaseapp.com",
-  projectId: "social-network-1c5d2",
-  storageBucket: "social-network-1c5d2.appspot.com",
-  messagingSenderId: "514107260716",
-  appId: "1:514107260716:web:77ff03537478a07489b689",
-  measurementId: "G-3GHVJ77MJ3",
-};
-
-// Initialize Firebase
-//export const firebaseApp = firebase.initializeApp(firebaseConfig);
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-
-
+import { mostrarSeccionUsuario } from "./lib/vistas/seccionUsuario.js";
 
 //carga la pagina
 document.addEventListener("DOMContentLoaded", () => {
-  const locationRood = window.location.hash;
-
-  return mostrarVista(locationRood);
+    const locationRoute = window.location.hash;
+    mostrarVista(locationRoute);
 });
+
+// evento que se dispara cuando el estado de la autenticacion cambia
+//observable 
+const auth = getAuth();
+onAuthStateChanged(auth, (user) => {
+    mostrarDatosUsuario(user);
+});
+
+//muestra o no la seccion del nombre del ususario en la barra cuando se loguea
+const mostrarDatosUsuario = (usuario) => {
+    const seccionUsuario = document.getElementById("seccionUsuario");
+    if (usuario) {
+        seccionUsuario.classList.remove("oculto");
+        seccionUsuario.appendChild(mostrarSeccionUsuario(usuario.displayName));
+    } else {
+        seccionUsuario.innerHTML = "";
+        seccionUsuario.classList.add("oculto");
+    }
+};
+
 //escucha el cambio del hash(vista)
 //el evento hashchange es un evento para window
 window.addEventListener("hashchange", () => {
-  const locationRood = window.location.hash;
-  console.log(locationRood);
-  mostrarVista(locationRood);
+    const locationRoute = window.location.hash;
+    console.log(locationRoute);
+    mostrarVista(locationRoute);
 });
 
-/* mostrar el menu en la vista de post y muro
-const menu = document.getElementById("menu");
-document.getElementById("menu-nav").style.display = "block";*/
 
-export default db;

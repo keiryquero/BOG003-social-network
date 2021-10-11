@@ -2,49 +2,42 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-        <title>ALKEVE RESTAURANT SIDE</title>
+        <title>Red social</title>
         <link
             rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-            integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
         />
-         <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="style.css" />
     </head>
-
     <body>
-        <header class="menu-header">
-           
-            <img src="img/logonegroo.png" class="logo" alt="Logo" />
-            
-
-            <div class="menu">                
-                <nav class="menu-nav">
-                    <ul class="menu-items">
-                        <li class="menu-item"><a href="#/inicio">Inicio</a></li>
-                        <li class="menu-item"><a href="#/login">Login</a></li>
-                        <li class="menu-item"><a href="#/post">Post</a></li>
-                        <li class="menu-item"><a href="#/muro">Muro</a></li>
-                    </ul>
-                </nav>
+        <div class="container">
+            <header class="barra-superior sombra">
+                <!-- <div style="width: 90px"></div> -->
+                <img src="img/logo.svg" class="logo" alt="logo" />
+                <div class="flexible" id="seccionUsuario">
+                    
+                </div>
+            </header>
+            <!-- <nav class="barra-menu sombra">
+                <ul class="menu">
+                    <li><a href="#/inicio">Inicio</a></li>
+                    <li><a href="#/login">Login</a></li>
+                    <li><a href="#/post">Post</a></li>
+                    <li><a href="#/muro">Muro</a></li>
+                </ul>
+            </nav> -->
+            <main
+                id="contenedorRoute"
+                class="contenido-principal flexible-centrado"
+            >
                
-            </div>
-        </header>
-        <main>
-            <div id="contenedorRoute" class="contenedor-template"></div>           
-
-        </main>   
-
-      
-        <footer class="titulo">
-            <p>Copyright © 2021 | ALKEVE RESTAURANT SITE</p>
-        </footer>
-
+            </main>
+            <!-- <aside class="barra-lateral sombra">barra-lateral</aside>
+            <div class="enlaces sombra">Enlaces de interés</div> -->
+            <footer class="pie sombra">Pie de página</footer>
+        </div>
         <script type="module" src="main.js"></script>
-       
     </body>
 </html>
