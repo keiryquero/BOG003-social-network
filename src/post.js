@@ -14,7 +14,7 @@ import db from "./main.js";
 export const post = () => {
   //se crea un elemento tipo template para insertarle el texto de la plantilla
   let contenedor = document.createElement("div");
-  //let contenedorTarjeta = document.createElement("div");
+  
 
   const templatePost = `
     <section id ="contenedor-post" class = "contenedor-post">
@@ -27,15 +27,15 @@ export const post = () => {
       <textarea id ="datos-restaurante" rows="8" class = "datos-restaurante" 
       placeholder="Describe los datos: Costo, horario y ubicación"></textarea>
     </div>
-    <button id="btn-editar" type="submit"><i style='font-size:24px' class='far'>&#xf044;</i></button>
-   
+    
+    <button id="btn-editar" type="click" ><i style='font-size:24px' class='far'>&#xf044;</i></button>
     <button id="btn-publicar" type="submit">PUBLICAR</button>
 
     
     </form>
     </section>
     
-    <section id ="contenedor-Publicacion" class = "publicacion">     
+    <section id ="contenedorPublicacion" class = "publicacion">     
     
     </section>
   `;
@@ -111,20 +111,31 @@ const mostrarPost = (post, id) => {
   postTarjeta.innerHTML = `<p>${post.nombreRestaurante} <br>
   ${post.descripcion}</p> 
   <button id="btn-like" type="click" ><i style='font-size:24px' class='far'>&#xf164;</i></button> 
-  <button id="btn-borrar" type="click" data-id ="${id}" ><i style='font-size:24px' class='far'>&#xf410;</i> click</button>
+   <button id="btn-borrar" type="click" data-id ="${id}" ><i style='font-size:24px' class='far'>&#xf410;</i> click</button>
   `;
 
   tarjetas.appendChild(postTarjeta);
-
 
   let btnBorrar = postTarjeta.querySelectorAll("#btn-borrar");
   btnBorrar.forEach ((btn) => {
    btn.addEventListener("click", (evento) => {
      const id = evento.target.dataset.id;
-      borrarPost(id);
+      console.log(id);
     });
   })
-};
+}
+/*Botón para editar*/ 
+
+ /* let btnEditar = postTarjeta.querySelectorAll("#btn-editar");
+  btnEditar.forEach ((btn) => {
+   btn.addEventListener("click", (evento) => {
+     const id = evento.target.dataset.id;
+      //borrarPost(id);
+      console.log("Aqui", id)
+    });
+  })*/
+
+
 
 // Metodo para borrar un documento creado en firestore
 const borrarPost = async (id) => {
@@ -132,4 +143,3 @@ await deleteDoc(doc(db, "publicaciones", id));
 console.log("hola", id);
 
 };
-

@@ -4,6 +4,7 @@ import {
   signInWithPopup,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js";
 
 //funcion de registro
@@ -81,3 +82,47 @@ export const logueoConGoogle = () => {
 };
 
 
+// Observardor de firebase
+
+/*export const obtenerUsuario = () =>{
+const auth = getAuth();
+const uid = user.uid;
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    
+    conole.log("prueba", uid)
+    // ...
+  } else {
+    // User is signed out
+  
+    // ...
+  }
+});
+}*/
+/*Función que permite dar la identificación si el usuaruio esta o no logueado*/
+
+/*gitexport const autenPorId = ()=>{
+
+const auth = getAuth();
+const user = auth.currentUser;
+
+if (user) {
+
+
+
+
+  
+  // User is signed in, see docs for a list of available properties
+  // https://firebase.google.com/docs/reference/js/firebase.User
+  // ...
+} else {
+  // No user is signed in.
+}
+}*/
+
+/*
+const auth = getAuth(firebaseApp);
+onAuthStateChanged(auth, user => {
+  // Check for user status
+});
+*/
