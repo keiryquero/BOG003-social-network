@@ -77,13 +77,15 @@ export const post = () => {
     </form>
     </div>
     <div class="tarjeta-acciones">
-        <div></div>
-        <button type="submit" form="formCrearPost" class="boton boton-primario">
+                <button type="submit" form="formCrearPost" class="boton boton-primario">
             <i class="bi bi-plus-circle"></i>
             Crear
         </button>
     </div>
-  </div>`;
+  </div>
+  
+  <div id ="contenedorPublicacion"></div>
+  `;
 
     contenedor.innerHTML = templatePost; //reemplaza-mete el template 
 
@@ -106,6 +108,8 @@ export const post = () => {
                 console.log(data);
                 console.log("publicación exitosa");
                 formPost.reset();
+                leerDatos()
+
             })
             .catch((error) => {
                 console.log(error);
@@ -147,7 +151,7 @@ const crearPost = async (
             .then((data) => {
                 console.log("Document written with ID: ", data.id);
                 resolve(data);
-                leerDatos()
+                
             })
             .catch((error) => {
                 reject(error);
@@ -179,8 +183,10 @@ const mostrarPost = (post, id) => {
     postTarjeta.dataset.id = id;
     postTarjeta.className = "tarjetas-publicacion";
     postTarjeta.innerHTML = `<h2>${post.nombre}</h2>
-    <p>${post.horaIni}${post.horaFin}</p>
-    <p>${post.costo}${post.ubicacion}</p> 
+    <p>${post.horaIni} a
+    ${post.horaFin}</p>
+    <p>${post.costo}<br>
+    ${post.ubicacion}</p> 
     <p>${post.descripcion}</p> 
     <button id="btn-like" type="click" ><i style='font-size:24px' class='far'>&#xf164;</i></button> 
     <i data-id ="${id}"  id="btn-borrar" style='font-size:24px' class='far'>&#xf410;</i>
@@ -202,6 +208,7 @@ const mostrarPost = (post, id) => {
        btn.addEventListener("click", (evento) => {
          const id = evento.target.dataset.id;
          console.log(id);
+         editar();
          
        });
      });
@@ -216,15 +223,18 @@ const borrarPost = async (id) => {
     
 // Metodo para editar un documento creado en firestore
 
-/*const editar = async (id) => {
+const editar = async (id) => {
   const washingtonRef = doc(db, "publicaciones", id);
   // Set the "capital" field of the city 'DC'
   await updateDoc(washingtonRef, {
-    nombreRestaurante: nombre,
-    descripcion: descripcion,
-    fecha: new Date(),
+    nombre,
+    horaIni,
+    horaFin,
+    costo,
+    ubicacion,
+    descripcion,
   });
-};*/
+};
 
 
 
