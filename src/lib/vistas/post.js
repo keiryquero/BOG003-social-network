@@ -1,12 +1,13 @@
 import {
-    collection,
-    addDoc,
-    getDocs,
-    query,
-    where,
-    setDoc,
-    deleteDoc,
-    getFirestore,
+ doc,
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+  setDoc,
+  deleteDoc,
+  updateDoc,
 } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js";
 
 import { db } from "../app.js";
@@ -146,6 +147,7 @@ const crearPost = async (
             .then((data) => {
                 console.log("Document written with ID: ", data.id);
                 resolve(data);
+                leerDatos()
             })
             .catch((error) => {
                 reject(error);
@@ -170,22 +172,61 @@ const leerDatos = async () => {
 };
 
 //Crear Div para mostrar historial de posts
-const mostrarPost = (post) => {
+const mostrarPost = (post, id) => {
     //document.getElementById("postTarjeta").innerHTML= "";
-    let tarjetas = document.querySelector("#contenedor-Publicacion");
+    let tarjetas = document.querySelector("#contenedorPublicacion");
     const postTarjeta = document.createElement("div");
-    postTarjeta.classList.add("postTarjeta");
-    postTarjeta.dataset.id = "123";
+    postTarjeta.dataset.id = id;
     postTarjeta.className = "tarjetas-publicacion";
-    postTarjeta.innerHTML = `<p>${post.nombreRestaurante} <br>
-  ${post.descripcion}
-  </p> 
-  <button id="btn-like" type="submit"><i style='font-size:24px' class='far'>&#xf164;</i></button> 
- 
-  `;
+    postTarjeta.innerHTML = `<h2>${post.nombre}</h2>
+    <p>${post.horaIni}${post.horaFin}</p>
+    <p>${post.costo}${post.ubicacion}</p> 
+    <p>${post.descripcion}</p> 
+    <button id="btn-like" type="click" ><i style='font-size:24px' class='far'>&#xf164;</i></button> 
+    <i data-id ="${id}"  id="btn-borrar" style='font-size:24px' class='far'>&#xf410;</i>
+    <i id="btn-editar" data-id ="${id}" style='font-size:24px' class='far'>&#xf044;</i>
+    `;
 
-    // tarjetas.appendChild(postTarjeta);
+     tarjetas.appendChild(postTarjeta);
+
+     let btnBorrar = postTarjeta.querySelectorAll("#btn-borrar");
+     btnBorrar.forEach((btn) => {
+       btn.addEventListener("click", (evento) => {
+         const id = evento.target.dataset.id;
+         console.log(id);
+         borrarPost(id);
+       });
+     });
+     let btnEditar = postTarjeta.querySelectorAll("#btn-editar");
+     btnEditar.forEach((btn) => {
+       btn.addEventListener("click", (evento) => {
+         const id = evento.target.dataset.id;
+         console.log(id);
+         
+       });
+     });
 };
+
+// Metodo para borrar un documento creado en firestore
+const borrarPost = async (id) => {
+    await deleteDoc(doc(db, "publicaciones", id));
+    console.log("hola", id);
+    
+    };
+    
+// Metodo para editar un documento creado en firestore
+
+/*const editar = async (id) => {
+  const washingtonRef = doc(db, "publicaciones", id);
+  // Set the "capital" field of the city 'DC'
+  await updateDoc(washingtonRef, {
+    nombreRestaurante: nombre,
+    descripcion: descripcion,
+    fecha: new Date(),
+  });
+};*/
+
+
 
 //contenedor para mostrar las tarjetas html y aqui, crear la funcion que muestre 
 //y me recorra las publicaciones del arreglo del post
