@@ -170,7 +170,7 @@ const leerDatos = async () => {
 
     querySnapshot.forEach((documento) => {
         //console.log(documento.data());
-        mostrarPost(documento.data());
+        mostrarPost(documento.data(), documento.id);
         //console.log(`${doc.id} => ${doc.data()}`);
     });
 };
@@ -188,7 +188,6 @@ const mostrarPost = (post, id) => {
     <p>${post.costo}<br>
     ${post.ubicacion}</p> 
     <p>${post.descripcion}</p> 
-    <button id="btn-like" type="click" ><i style='font-size:24px' class='far'>&#xf164;</i></button> 
     <i data-id ="${id}"  id="btn-borrar" style='font-size:24px' class='far'>&#xf410;</i>
     <i id="btn-editar" data-id ="${id}" style='font-size:24px' class='far'>&#xf044;</i>
     `;
@@ -208,7 +207,7 @@ const mostrarPost = (post, id) => {
        btn.addEventListener("click", (evento) => {
          const id = evento.target.dataset.id;
          console.log(id);
-         editar();
+         editar(id);
          
        });
      });
