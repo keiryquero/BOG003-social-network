@@ -138,13 +138,12 @@ console.log("hola", id);
 };
 
 // Metodo para editar un documento creado en firestore
-
 /*const editar = async (id) => {
   const washingtonRef = doc(db, "publicaciones", id);
   // Set the "capital" field of the city 'DC'
   await updateDoc(washingtonRef, {
     nombreRestaurante: nombre,
     descripcion: descripcion,
-    fecha: new Date(),
+    
   });
 };*/
