@@ -13,3 +13,4 @@ export const errorPage = () => {
     // el retunr ya no devuelve el texto del template sino que devuelve un nodo de HTML
     return template.content;
 };
+
