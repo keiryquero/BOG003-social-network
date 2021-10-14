@@ -251,8 +251,8 @@ const mostrarPost = (post, id) => {
   let btnEditar = postTarjeta.querySelectorAll(".editar");
   btnEditar.forEach((btn) => {
     btn.addEventListener("click", (evento) => {
-      //const id = evento.target.children[0].attributes['data-id'].nodeValue;
-      console.log(evento.currentTarget);
+      const id = evento.currentTarget.getAttribute("data-id");
+      //console.log(evento.currentTarget);
       // editar(id);
     });
   });
