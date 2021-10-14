@@ -13,6 +13,7 @@ import {
 import { db } from "../app.js";
 import { obtenerUsuarioActual } from "../auth.js";
 
+
 export const post = () => {
   //se crea un elemento tipo template para insertarle el texto de la plantilla
   let contenedor = document.createElement("div");
@@ -162,9 +163,9 @@ window.addEventListener("DOMContentLoaded", (e) => {
 
 // Leer  la publiacción del post
 
-const leerDatos = async () => {
+export const leerDatos = async () => {
   const querySnapshot = await getDocs(collection(db, "publicaciones"));
-  //document.getElementById("contenedorPublicacion").innerHTML= "";
+  document.getElementById("contenedorPublicacion").innerHTML= "";
   querySnapshot.forEach((documento) => {
     //console.log(documento.data());
     mostrarPost(documento.data(), documento.id);
@@ -173,7 +174,7 @@ const leerDatos = async () => {
 };
 
 //Crear Div para mostrar historial de posts
-const mostrarPost = (post, id) => {
+export const mostrarPost = (post, id) => {
   
   let tarjetas = document.querySelector("#contenedorPublicacion");
   const postTarjeta = document.createElement("div");
@@ -237,7 +238,6 @@ const mostrarPost = (post, id) => {
 </button>
             
     `;
-
   tarjetas.appendChild(postTarjeta);
 
   let btnBorrar = postTarjeta.querySelectorAll(".borrar");
@@ -253,7 +253,7 @@ const mostrarPost = (post, id) => {
     btn.addEventListener("click", (evento) => {
       const id = evento.currentTarget.getAttribute("data-id");
       //console.log(evento.currentTarget);
-      // editar(id);
+      editar(id);
     });
   });
 };
@@ -263,10 +263,8 @@ const borrarPost = async (id) => {
   await deleteDoc(doc(db, "publicaciones", id));
   console.log(id);
 };
-
 // Metodo para editar un documento creado en firestore
-
-const editar = async (id) => {
+const editar= async (id) => {
   const camposEditar = doc(db, "publicaciones", id);
   console.log(id);
   // Set the "capital" field of the city 'DC'
@@ -282,4 +280,5 @@ const editar = async (id) => {
     fecha: new Date(),
   });
 };
+
 

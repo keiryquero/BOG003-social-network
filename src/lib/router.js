@@ -47,7 +47,7 @@ export async function mostrarVista(hash) {
 
         case "#/editar":
             if (autenticado) {
-                container.appendChild(editar());
+             container.appendChild(editar());
             } else {
                 window.location.hash = "#/login";
             }

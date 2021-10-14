@@ -5,18 +5,17 @@ import { doc,
   query,
   where,
   setDoc,
-  deleteDoc,
   updateDoc,
 }from "https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js";
 
 import { db } from "../app.js";
 import { obtenerUsuarioActual } from "../auth.js";
+import { leerDatos } from "./post.js";
 
 export const editar = () => {
     //se crea un elemento tipo template para insertarle el texto de la plantilla
     let contenedor = document.createElement("div");
-    //let contenedorTarjeta = document.createElement("div");
-  
+    //let template = document.createElement("template");
     const templateEditar = `
     <div class="tarjeta sombra">
       <div class="tarjeta-encabezado">
@@ -86,4 +85,24 @@ export const editar = () => {
     <div class = "tarjeta-acciones" id ="contenedorPublicacion"></div>
     `;
     contenedor.innerHTML = templateEditar; //reemplaza-mete el template  
+
+    let formPost = contenedor.querySelector("#formCrearPost");
+
+    formPost.addEventListener("submit", (evt) => {
+    evt.preventDefault();
+    let nombre = document.querySelector("#nombre_restaurante").value;
+    let horaIni = document.querySelector("#horario_ini_restaurante").value;
+    let horaFin = document.querySelector("#horario_fin_restaurante").value;
+    let costo = document.querySelector("#costo_restaurante").value;
+    let ubicacion = document.querySelector("#ubicacion_restaurante").value;
+    let descripcion = document.querySelector("#datos_restaurante").value;
+
+    return contenedor;
+});
+ 
 };
+window.addEventListener("DOMContentLoaded", (e) => {
+    leerDatos();
+  });
+
+
