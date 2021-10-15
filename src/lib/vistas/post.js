@@ -82,6 +82,10 @@ export const post = () => {
             <i class="bi bi-plus-circle"></i>
             Crear
         </button>
+        <button type="submit" form="formCrearPost" class="boton boton-primario btn-guardar">
+            <i class="bi bi-plus-circle"></i>
+           Editar vista
+        </button>
     </div>
   </div>
   
@@ -136,6 +140,7 @@ const crearPost = async (
   descripcion
 ) => {
   return new Promise((resolve, reject) => {
+    console.log("me estoy creando");
     addDoc(collection(db, "publicaciones"), {
       nombre: nombre,
       horaIni: horaIni,
@@ -163,7 +168,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
 
 // Leer  la publiacción del post
 
-export const leerDatos = async () => {
+const leerDatos = async () => {
   const querySnapshot = await getDocs(collection(db, "publicaciones"));
   document.getElementById("contenedorPublicacion").innerHTML= "";
   querySnapshot.forEach((documento) => {
@@ -200,7 +205,7 @@ export const mostrarPost = (post, id) => {
         />
     </svg>
 </button>
-<button class="boton boton-plano editar"  data-id= "${id}" >
+<button class="boton boton-plano editar"  data-id= "${id}" data-descripcion = "${post.descripcion}">
     <svg 
         xmlns="http://www.w3.org/2000/svg"
         width="20"
@@ -239,7 +244,7 @@ export const mostrarPost = (post, id) => {
             
     `;
   tarjetas.appendChild(postTarjeta);
-
+//Boton Eliminar
   let btnBorrar = postTarjeta.querySelectorAll(".borrar");
   btnBorrar.forEach((btn) => {
     btn.addEventListener("click", (evento) => {
@@ -248,12 +253,16 @@ export const mostrarPost = (post, id) => {
       borrarPost(id);
     });
   });
+  //Boton Editar
   let btnEditar = postTarjeta.querySelectorAll(".editar");
   btnEditar.forEach((btn) => {
     btn.addEventListener("click", (evento) => {
-      const id = evento.currentTarget.getAttribute("data-id");
-      //console.log(evento.currentTarget);
-      editar(id);
+      
+     //console.log(evento);
+     const id = evento.currentTarget.getAttribute("data-id");
+     const dataDescripcion = evento.currentTarget.getAttribute("data-descripcion");
+     console.log(id,dataDescripcion);
+      editar(id,dataDescripcion);
     });
   });
 };
@@ -263,22 +272,35 @@ const borrarPost = async (id) => {
   await deleteDoc(doc(db, "publicaciones", id));
   console.log(id);
 };
+
 // Metodo para editar un documento creado en firestore
-const editar= async (id) => {
+  const editar = async (id, dataDescripcion) => {
+  const btnGuardar = document.querySelector(".btn-guardar");
+  btnGuardar.style.display = "block";
+  let formPost = document.querySelector("#formCrearPost");
+  let descripcion = document.querySelector("#datos_restaurante");
+  descripcion.value = dataDescripcion;
+
+  let btnGuardarCambios = document.querySelector(".btn-guardar");
+  btnGuardarCambios.addEventListener("click", (evento) =>{
+    console.log("hola");
+    actualizar(id,descripcion.value);
+  
+  });
+   
+};
+const actualizar = async (id) =>{
+  console.log("guardado");
   const camposEditar = doc(db, "publicaciones", id);
-  console.log(id);
+  let nuevaDescripcion = document.querySelector("#datos_restaurante").value;
+   //console.log(camposEditar);
   // Set the "capital" field of the city 'DC'
   await updateDoc(camposEditar, {
-    nombre: nombre,
-    horaIni: horaIni,
-    horaFin: horaFin,
-    costo: costo,
-    ubicacion: ubicacion,
-    descripcion: descripcion,
-    userId: obtenerUsuarioActual().uid,
-    userName: obtenerUsuarioActual().displayName,
-    fecha: new Date(),
+    descripcion: nuevaDescripcion,
+    //userId: obtenerUsuarioActual().uid,
+   // userName: obtenerUsuarioActual().displayName,
+    
   });
-};
 
+};
 

@@ -10,7 +10,7 @@ import { doc,
 
 import { db } from "../app.js";
 import { obtenerUsuarioActual } from "../auth.js";
-import { leerDatos } from "./post.js";
+
 
 export const editar = () => {
     //se crea un elemento tipo template para insertarle el texto de la plantilla
@@ -84,25 +84,12 @@ export const editar = () => {
     
     <div class = "tarjeta-acciones" id ="contenedorPublicacion"></div>
     `;
-    contenedor.innerHTML = templateEditar; //reemplaza-mete el template  
+    
+ contenedor.innerHTML = templateEditar;
 
-    let formPost = contenedor.querySelector("#formCrearPost");
-
-    formPost.addEventListener("submit", (evt) => {
-    evt.preventDefault();
-    let nombre = document.querySelector("#nombre_restaurante").value;
-    let horaIni = document.querySelector("#horario_ini_restaurante").value;
-    let horaFin = document.querySelector("#horario_fin_restaurante").value;
-    let costo = document.querySelector("#costo_restaurante").value;
-    let ubicacion = document.querySelector("#ubicacion_restaurante").value;
-    let descripcion = document.querySelector("#datos_restaurante").value;
-
-    return contenedor;
-});
- 
 };
-window.addEventListener("DOMContentLoaded", (e) => {
-    leerDatos();
-  });
+
+ 
+
 
 
