@@ -71,7 +71,7 @@ Se construyeron cinco historias pensadas en usuarios, interesados en dar a conoc
 
 ### 5.3 Post
 
-![Post](src/img/Post.jpeg)
+![Post](src/img/post.jpeg)
 
 ### 5.3 Publicaciones
 
