@@ -170,7 +170,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
 
 const leerDatos = async () => {
   const querySnapshot = await getDocs(collection(db, "publicaciones"));
-  //document.getElementById("contenedorPublicacion").innerHTML= "";
+  document.getElementById("contenedorPublicacion").innerHTML= "";
   querySnapshot.forEach((documento) => {
     //console.log(documento.data());
     mostrarPost(documento.data(), documento.id);
