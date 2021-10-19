@@ -1,4 +1,4 @@
-import { registrarUsusario, iniciarSesionGoogle } from "../auth.js";
+import { registrarUsusario, iniciarSesionGoogle} from "../auth.js";
 
 export const registration = () => {
     const templateRegistro = 

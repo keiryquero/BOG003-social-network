@@ -266,7 +266,10 @@ body {
 }
 
 .boton.boton-plano:active {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(v0, 0, 0, 0.1);
+}
+.btn-guardar{
+display: none;
 }
 .btn-guardar{
   display:none;

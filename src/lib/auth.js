@@ -19,7 +19,7 @@ export const registrarUsusario = (nombre, email, password) => {
                 displayName: nombre,
             }).then(
                 function () {
-                    console.log(respuesta);
+                    console.log(respuesta);                    
                 },
                 function (error) {
                     console.log(error);

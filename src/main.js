@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //observable 
 const auth = getAuth();
 onAuthStateChanged(auth, (user) => {
-    mostrarDatosUsuario(user);
+mostrarDatosUsuario(user);
 });
 
 //muestra o no la seccion del nombre del ususario en la barra cuando se loguea

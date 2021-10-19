@@ -82,7 +82,7 @@ export const post = () => {
             <i class="bi bi-plus-circle"></i>
             Crear
         </button>
-        <button type="submit" form="formCrearPost" class="boton boton-primario btn-guardar">
+        <button type="button" form="formCrearPost" class="boton boton-primario btn-guardar">
             <i class="bi bi-plus-circle"></i>
            Editar vista
         </button>
@@ -170,7 +170,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
 
 const leerDatos = async () => {
   const querySnapshot = await getDocs(collection(db, "publicaciones"));
-  document.getElementById("contenedorPublicacion").innerHTML= "";
+  //document.getElementById("contenedorPublicacion").innerHTML= "";
   querySnapshot.forEach((documento) => {
     //console.log(documento.data());
     mostrarPost(documento.data(), documento.id);
@@ -271,7 +271,8 @@ export const mostrarPost = (post, id) => {
 const borrarPost = async (id) => {
   await deleteDoc(doc(db, "publicaciones", id));
   console.log(id);
-};
+  alert("Su Post fue eliminado exitosamente");  
+  };
 
 // Metodo para editar un documento creado en firestore
   const editar = async (id, dataDescripcion) => {
@@ -283,24 +284,22 @@ const borrarPost = async (id) => {
 
   let btnGuardarCambios = document.querySelector(".btn-guardar");
   btnGuardarCambios.addEventListener("click", (evento) =>{
-    console.log("hola");
+    console.log("hola", id);
     actualizar(id,descripcion.value);
   
   });
    
 };
 const actualizar = async (id) =>{
-  console.log("guardado");
+  console.log("guardado", id);
   const camposEditar = doc(db, "publicaciones", id);
   let nuevaDescripcion = document.querySelector("#datos_restaurante").value;
    //console.log(camposEditar);
   // Set the "capital" field of the city 'DC'
   await updateDoc(camposEditar, {
     descripcion: nuevaDescripcion,
-    //userId: obtenerUsuarioActual().uid,
-   // userName: obtenerUsuarioActual().displayName,
-    
   });
+ alert("Publicacion actualizada");
 
 };
 

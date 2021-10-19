@@ -3,7 +3,7 @@ import { post } from "./vistas/post.js";
 import { login } from "./vistas/login.js";
 import { errorPage } from "./vistas/errorPage.js";
 import { estaAutenticado } from "./auth.js";
-import { editar } from "./vistas/editar.js";
+
 
 //se convierte en funcion asincrona para el estaAutenticado
 export async function mostrarVista(hash) {
@@ -45,13 +45,13 @@ export async function mostrarVista(hash) {
             }
             break;
 
-        case "#/editar":
+        /*case "#/editar":
             if (autenticado) {
              container.appendChild(editar());
             } else {
                 window.location.hash = "#/login";
             }
-            break;
+            break;*/
 
         default:
             container.appendChild(errorPage());
