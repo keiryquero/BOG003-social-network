@@ -84,12 +84,13 @@ export const post = () => {
         </button>
         <button type="button" form="formCrearPost" class="boton boton-primario btn-guardar">
             <i class="bi bi-plus-circle"></i>
-           Editar vista
+           Guardar
         </button>
     </div>
-  </div>
+  </div> <br>
   
-  <div class = "tarjeta-acciones" id ="contenedorPublicacion"></div>
+  <div class = "tarjeta-acciones prueba" id ="contenedorPublicacion">
+  </div>
   `;
 
   contenedor.innerHTML = templatePost; //reemplaza-mete el template
@@ -205,7 +206,7 @@ export const mostrarPost = (post, id) => {
         />
     </svg>
 </button>
-<button class="boton boton-plano editar"  data-id= "${id}" data-descripcion = "${post.descripcion}">
+<button class="boton boton-plano editarDos"  data-id= "${id}" data-descripcion = "${post.descripcion}">
     <svg 
         xmlns="http://www.w3.org/2000/svg"
         width="20"
@@ -243,7 +244,11 @@ export const mostrarPost = (post, id) => {
 </button>
             
     `;
+
   tarjetas.appendChild(postTarjeta);
+
+
+
 //Boton Eliminar
   let btnBorrar = postTarjeta.querySelectorAll(".borrar");
   btnBorrar.forEach((btn) => {
@@ -254,7 +259,7 @@ export const mostrarPost = (post, id) => {
     });
   });
   //Boton Editar
-  let btnEditar = postTarjeta.querySelectorAll(".editar");
+  let btnEditar = postTarjeta.querySelectorAll(".editarDos");
   btnEditar.forEach((btn) => {
     btn.addEventListener("click", (evento) => {
       
@@ -265,6 +270,17 @@ export const mostrarPost = (post, id) => {
       editar(id,dataDescripcion);
     });
   });
+
+  /*const currentUserId = updateProfile(auth.currentUser, {
+    displayName: nombre
+  })
+  const idPost = doc.data().uid;
+
+  if (currentUserId === idPost){
+    borrar.style.display = 'block';
+    editarDos.style.display = 'block';
+  }*/
+  
 };
 
 // Metodo para borrar un documento creado en firestore
@@ -297,8 +313,8 @@ const actualizar = async (id) =>{
   // Set the "capital" field of the city 'DC'
   await updateDoc(camposEditar, {
     descripcion: nuevaDescripcion,
-    //userId: obtenerUsuarioActual().uid,
-   // userName: obtenerUsuarioActual().displayName,
+    userId: obtenerUsuarioActual().uid,
+   userName: obtenerUsuarioActual().displayName,
     
   });
 
